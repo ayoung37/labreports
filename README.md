@@ -3,6 +3,8 @@ Report for Fractal Geometry
 
 Web Page : https://ayoung37.github.io/labreports/
 
+Lab 1: https://ayoung37.github.io/labreports/Lab1.html
+
 # Notes 
 
 Hello World
