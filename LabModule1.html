@@ -48,7 +48,7 @@
 	<br> The assignment required us to modify the code by changing the color of the turtle and the background. I changed the turtle and square colors to green, while setting the background color to pink. Additionally, I adjusted the turtle's position by modifying the coordinates to jump to (100, 100). 
 	The code moves the turtle and the square closer to the top right corner of the canvas. I adjusted the size of the square the turtle is creating by changing the `forward(50)` command to create a smaller square. Additionally, modifying the `face()` value rotates the turtle before drawing. I changed the direction of the turtle from facing upward to 45 degrees.
 
-	<br> The updated code is presented below in MODIFY CODE #2 and Figure 2.
+	<br><br><b> The updated code is presented below in MODIFY CODE #2 and Figure 2.</b>
 
 	</p>
       </section>
@@ -61,7 +61,8 @@
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<section id="code">
 	<pre><code class="language-python">
-	<b><u>ORIGINAL CODE #1 </u></b>
+		
+	# <b>ORIGINAL CODE #1 </b>
 	# This is just a sample Python code block	
 	# This code installs the turtle library
 	!wget -O turtle_setup.py 'https://raw.githubusercontent.com/williamedwardhahn/fractal25/refs/heads/main/turtle_setup.py'
@@ -85,24 +86,24 @@
 	# Display the drawing
 	show()
 
-	<b><u>MODIFY CODE #2 </u></b>
+	# <br><b> MODIFY CODE #2</b>
 	# Initialize the turtle
-initializeTurtle()
-showturtle()
-color('green')
-bgcolor('pink')
-
-# Move to a suitable starting position
-jump(100,100)  # Adjust these values as needed to center the square
-face(45)  # Ensure the turtle is facing up
-
-# Draw a simple square
-for _ in range(4):
-    forward(50)
-    right(90)
-
-# Display the drawing
-show()
+	initializeTurtle()
+	showturtle()
+	color('green')
+	bgcolor('pink')
+	
+	# Move to a suitable starting position
+	jump(100,100)  # Adjust these values as needed to center the square
+	face(45)  # Ensure the turtle is facing up
+	
+	# Draw a simple square
+	for _ in range(4):
+	forward(50)
+	right(90)
+	
+	# Display the drawing
+	show()
 		
 	</code></pre>
 
@@ -122,9 +123,6 @@ show()
           The diagram below shows the code for a turtle moving clockwise around a square and returning to its starting position. 
         </p>
 
-
-
-
         <figure>
           <img
             src="https://github.com/ayoung37/labreports/blob/main/Turtle%20Graphics.PNG?raw=true"
@@ -134,7 +132,7 @@ show()
             loading="lazy"
           />
           <figcaption>
-            <strong><br>Figure 1:</strong> Illustration of the code presented above.
+            <strong><br>Figure 1:</strong> Illustration of the original code presented above.
           </figcaption>
         </figure>
 
