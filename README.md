@@ -9,6 +9,8 @@ Image Upload: https://ayoung37.github.io/labreports/fractal_example.png
 
 Module 1 Report: https://ayoung37.github.io/labreports/LabModule1.html
 
+Module 2 Report: https://ayoung37.github.io/labreports/LabModule2.html
+
 # Notes 
 
 Hello World
