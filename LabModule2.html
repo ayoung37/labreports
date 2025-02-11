@@ -39,6 +39,7 @@
   
           Module 2 began with code that simulates Brownian motion, the random movement of particles suspended in a medium such as a liquid or gas [1]. The movement is erratic and unpredictable.<br>
 
+
 	</p>
       </section>
 
@@ -52,28 +53,33 @@
 	<pre><code class="language-python">
 		
 	# <b>ORIGINAL CODE #1 </b>
-	# This is just a sample Python code block	
-	# This code installs the turtle library
-	!wget -O turtle_setup.py 'https://raw.githubusercontent.com/williamedwardhahn/fractal25/refs/heads/main/turtle_setup.py'
-	from turtle_setup import *
-
-	# Initialize the turtle
-	initializeTurtle()
-	showturtle()
-	color('blue')
-	bgcolor('white')
-		
-	# Move to a suitable starting position
-	jump(200, 200)  # Adjust these values as needed to center the square
-	face(0)  # Ensure the turtle is facing up
+	import random
 	
-	# Draw a simple square
-	for _ in range(4):
-		forward(100)
-		right(90)
+	# Step 1: Initialize the turtle canvas
+	canvas_width = 1000
+	canvas_height = 800
+	initializeTurtle(initial_window_size=(canvas_width, canvas_height), mode='auto')
+	
+	# Step 2: Function to perform a random walk (Brownian motion)
+	def random_walk(steps, step_length):
+		speed(0)             # Set speed to maximum for faster drawing
+		penup()
+		jump(450, 450)       # Start near the middle of the canvas
+		pendown()
 		
-	# Display the drawing
+		for _ in range(steps):
+			forward(step_length)               # Move forward by the step length
+			right(random.uniform(-180, 180))   # Turn by a random angle between -180 and 180 degrees
+	
+	# Step 3: Execute the random walk with increased steps and/or step length
+	steps = 1000
+	step_length = 10
+
+	random_walk(steps, step_length)
+	
+	# Step 4: Display the result
 	show()
+
 
 	# <br><b> MODIFY CODE #2</b>
 	# Initialize the turtle
