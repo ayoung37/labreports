@@ -355,6 +355,123 @@ blip_line(800, 4)<br>
 
 
 
+
+
+	<h2> Fifth Code: Generating a Koch Snowflake of Order 3 and 4 Using Turtle Graphics </h2>
+	
+	The fifth code generates a Koch snowflake using recursion. The Koch snowflake is a fractal curve built iteratively through several stages. The first stage consists of an equilateral triangle, and each subsequent stage is created by adding outward bends to each side of the previous stage, resulting in smaller equilateral triangles. The code blip_line function makes the Koch curve and then calls the Koch function three times to form a triangular snowflake. I modified the code to draw Koch snowflakes of orders 1, 2, 3, and 4 to showcase the fractal's various stages.
+
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Fifth Code </b>
+	initializeTurtle()
+	showturtle()
+	
+	# Define the blip_line function (Koch curve)
+	def blip_line(length, order):
+	if order == 0:
+		forward(length)
+	else:
+		blip_line(length / 3, order - 1)
+		left(60)
+		blip_line(length / 3, order - 1)
+		right(120)
+		blip_line(length / 3, order - 1)
+		left(60)
+		blip_line(length / 3, order - 1)
+	
+	# Draw the Koch snowflake
+	def koch_snowflake(length, order):
+	for _ in range(3):
+		blip_line(length, order)
+		right(120)
+	
+	# Set up the turtle
+	jump(100, 500)
+	face(0)
+	color('blue')
+
+# Draw the snowflake
+length = 200
+order = 3
+koch_snowflake(length, order)
+
+
+
+# Set up the turtle
+jump(600, 500)
+face(0)
+color('magenta')
+
+# Draw the snowflake
+length = 200
+order = 4
+koch_snowflake(length, order)
+
+
+
+# Set up the turtle
+jump(100, 200)
+face(0)
+color('black')
+
+# Draw the snowflake
+length = 200
+order = 1
+koch_snowflake(length, order)
+
+
+
+# Set up the turtle
+jump(600, 200)
+face(0)
+color('purple')
+
+# Draw the snowflake
+length = 200
+order = 2
+koch_snowflake(length, order)
+
+show()
+
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Recursive%20Zig%20Zag%20Pattern_Turtle%20Graphics.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 4:</strong> Illustration of the fourth code presented above.
+          </figcaption>
+        </figure>
+
+
       </section>
 
 
