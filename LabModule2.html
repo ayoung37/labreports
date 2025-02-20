@@ -288,6 +288,81 @@ blip_line(800, 4) <br>
 
 
 
+
+	<h2> Forth Code: Generating a Recursive Zig-Zag Pattern of Order 3 and 4 Using Turtle Graphics </h2>
+	
+	The third code uses recursion to generate a blip line, which becomes more complex with each recursion level. The function `blip_line()` divides a straight line into smaller segments, adding a distinctive blip (or zig-zag peak) at each level. The code demonstrates how recursive patterns can create intricate designs by drawing multiple blip lines of increasing order. <br>
+
+	I added two additional Blip lines with higher orders to the code. Initially, the code only drew two Blip lines of order 1 and order 2. Now, I have included two more Blip lines with order 3 and order 4. Below is the code I added to the initial version: <br>
+ # Order 3<br> 
+jump(50, 300)<br>
+face(90)<br>
+color('purple')<br>
+blip_line(800, 3) <br><br>
+
+# Order 4<br>
+jump(50, 250)<br>
+face(90)<br>
+color('magenta')<br>
+blip_line(800, 4) <br> 
+
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Forth Code </b>
+	initializeTurtle()
+	showturtle()
+	
+	jump(50, 400)
+	face(90)
+	color('green')
+	blip_line(800, 3)  # Order 3
+	
+	jump(50, 300)
+	face(90)
+	color('red')
+	blip_line(800, 4)  # Order 4
+	
+		
+	show()
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Recursive%20Zig%20Zag%20Pattern_Turtle%20Graphics.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 4:</strong> Illustration of the fourth code presented above.
+          </figcaption>
+        </figure>
+
+
+
       </section>
 
 
