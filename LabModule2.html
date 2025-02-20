@@ -138,7 +138,7 @@
 	<section id="code">
 	<pre><code class="language-python">
 		
-	# <b>Second Code #1 </b>
+	# <b>Second Code </b>
 	initializeTurtle()
 	showturtle()
 	
@@ -184,6 +184,93 @@
           />
           <figcaption>
             <strong><br>Figure 2:</strong> Illustration of the second code presented above.
+          </figcaption>
+        </figure>
+
+
+
+      </section>
+
+
+	<h2>Third Code: Generating Recursive Zig-Zag Patterns </h2>
+	
+	The second code is relatively easy to follow. It initializes the turtle canvas, draws a straight line with a zig-zag peak in the middle, and then continues in a straight line. <br>
+
+	The 'Forward(800/3)' command moves the turtle forward in its current direction and is used four times in the code. Initially, it moves the turtle forward before the zig-zag pattern begins. Next, it moves the turtle diagonally to the right to start the peak. Then, it moves the turtle diagonally to the left to complete the peak. Finally, it moves the turtle forward again to finish the straight line. The left(60) command changes the turtle's direction diagonally up. The right(120) command diagonally changes the turtle's direction down to the left. Both commands create the diagram's zig-zag peaks.
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Third Code </b>
+	# Define the blip_line function
+	def blip_line(length, order):
+	    if order == 0:
+		forward(length)
+	    else:
+		blip_line(length / 3, order - 1)
+		left(60)
+		blip_line(length / 3, order - 1)
+		right(120)
+		blip_line(length / 3, order - 1)
+		left(60)
+		blip_line(length / 3, order - 1)
+	
+	initializeTurtle()
+	
+	# Draw blip lines of different orders
+	jump(50, 400)
+	face(90)
+	color('red')
+	blip_line(800, 1)  # Order 1
+	
+	jump(50, 350)
+	face(90)
+	color('blue')
+	blip_line(800, 2)  # Order 2
+	
+	jump(50, 300)
+	face(90)
+	color('purple')
+	blip_line(800, 3)  # Order 3
+	
+	jump(50, 250)
+	face(90)
+	color('magenta')
+	blip_line(800, 4)  # Order 4
+	
+	show()
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Recursive%20Zig%20Zag%20Pattern.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 3:</strong> Illustration of the third code presented above.
           </figcaption>
         </figure>
 
