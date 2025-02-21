@@ -466,6 +466,114 @@ blip_line(800, 4)<br>
         </figure>
 
 
+
+
+
+
+	      
+<h2> Sixth Code: Generating the Dragon Fractal of Order 1, 3 and 10 Using Turtle Graphics </h2>
+
+	      The sixth and final code generates the Dragon Curve fractal using recursion and turtle graphics. The Dragon Curve is created from a base line segment by repeatedly replacing each segment with two new segments that form a right angle. This process involves alternating 45-degree rotations to the right and to the left. I modified the code to generate the Dragon Curve at orders 1, 3, and 10, showcasing the fractal at various stages.
+
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Sixth Code </b>
+	# Define the dragon curve function
+	def dragon_curve(order, length, turn_direction):
+		# Base case: if order is 0, just move forward
+		if order == 0:
+		   forward(length)
+		else:
+		    # Calculate the new length for each recursive step
+		    new_length = length / (2 ** 0.5)
+
+                    # Recursively draw the dragon curve, turning right and left as needed
+                    dragon_curve(order - 1, new_length, 1)  # First segment
+                    right(turn_direction * 90)             # Turn by 90 degrees
+                    dragon_curve(order - 1, new_length, -1) # Second segment
+		
+	# Initialize the turtle for drawing
+	initializeTurtle()
+	showturtle()
+
+
+	# Move the turtle to a starting position
+	jump(100, 400)
+	face(0)             # Set starting direction
+	color('purple')     # Choose a color
+
+	# Draw the dragon curve
+	order = 1          # Complexity level
+	length = 200        # Initial length of each segment
+	dragon_curve(order, length, 1)
+
+	# Move the turtle to a starting position
+	jump(400, 400)
+	face(0)             # Set starting direction
+	color('red')     # Choose a color
+
+
+	# Draw the dragon curve
+	order = 3          # Complexity level
+	length = 200        # Initial length of each segment
+	dragon_curve(order, length, 1)
+
+
+	# Move the turtle to a starting position
+	jump(700, 400)
+	face(0)             # Set starting direction
+	color('blue')     # Choose a color
+
+	# Draw the dragon curve
+	order = 10         # Complexity level
+	length = 200        # Initial length of each segment
+	dragon_curve(order, length, 1)
+
+
+	# Show the final drawing
+	show()
+		
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Recursive%20Zig%20Zag%20Pattern_Turtle%20Graphics.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 6:</strong> Visualization of Dragon Curve  of orders 1, 3, and 10 generated using recursive turtle graphics.
+          </figcaption>
+        </figure>
+
+
+
+	
+
       </section>
 
 
