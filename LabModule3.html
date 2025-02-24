@@ -1,0 +1,620 @@
+<!-- INTRODUCTION SECTION -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<html>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="https://latex.vercel.app/style.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"/><script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+
+<title>Fractal Geometry Lab Report</title>
+
+</head>
+	
+<body id="top">
+
+
+
+
+  <header>
+    <h1>Fractal Geometry Lab Report # 3 </h1>
+    <p class="author">
+      Alecia Young <br />
+      February 6, 2025
+    </p>
+  </header>
+  
+
+
+  <main>
+    <article class="indent-pars">
+      
+      <!-- INTRODUCTION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="introduction">
+        <h2>Introduction</h2>
+
+	<h2>First Code: Brownian Motion</h2>
+        <p>
+  
+         Module 2 began with code that simulates Brownian motion. Brownian motion is the random movement of particles suspended in a medium such as a liquid or gas [1]. It is erratic and unpredictable.<br>
+
+
+	</p>
+      </section>
+
+
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Brownian Motion #1 </b>
+	import random
+	
+	# Step 1: Initialize the turtle canvas
+	canvas_width = 1000
+	canvas_height = 800
+	initializeTurtle(initial_window_size=(canvas_width, canvas_height), mode='auto')
+	
+	# Step 2: Function to perform a random walk (Brownian motion)
+	def random_walk(steps, step_length):
+		speed(0)             # Set speed to maximum for faster drawing
+		penup()
+		jump(450, 450)       # Start near the middle of the canvas
+		pendown()
+		
+		for _ in range(steps):
+			forward(step_length)               # Move forward by the step length
+			right(random.uniform(-180, 180))   # Turn by a random angle between -180 and 180 degrees
+	
+	# Step 3: Execute the random walk with increased steps and/or step length
+	steps = 1000
+	step_length = 10
+
+	random_walk(steps, step_length)
+	
+	# Step 4: Display the result
+	show()
+		
+	</code></pre>
+
+	The code begins by installing and downloading the `turtle_setup.py` Python script from GitHub.<br>
+	In step 1, the code initializes the turtle canvas by setting the dimensions and the size of the turtle graphics window to 1000 pixels wide and 800 pixels high. The following code initializes the turtle canvas:<br>
+	<b>```python<br>
+	# Step 1: Initialize the turtle canvas<br>
+	canvas_width = 1000<br>
+	canvas_height = 800<br>
+	initializeTurtle(initial_window_size=(canvas_width, canvas_height), mode='auto')```</b><br>
+	
+	In step 3, the code defines a random walk function by starting the turtle at the coordinates (450, 450), which is the center of the canvas. The turtle moves at maximum speed. After each step, the turtle turns at a random angle between -180 degrees and 180 degrees, resulting in an unpredictable path.
+
+	 </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+          The diagram below shows the code for the Brownian motion. 
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Brownian%20motion.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 1:</strong> Illustration of the Brownian motion.
+          </figcaption>
+        </figure>
+
+
+      </section>
+
+
+	<h2>Second Code: Turtle Graphics (Drawing a Line with a Zig- Zag Peak) </h2>
+	
+	The second code is relatively easy to follow. It initializes the turtle canvas, draws a straight line with a zig-zag peak in the middle, and then continues in a straight line. <br>
+
+	The 'Forward(800/3)' command moves the turtle forward in its current direction and is used four times in the code. Initially, it moves the turtle forward before the zig-zag pattern begins. Next, it moves the turtle diagonally to the right to start the peak. Then, it moves the turtle diagonally to the left to complete the peak. Finally, it moves the turtle forward again to finish the straight line. The left(60) command changes the turtle's direction diagonally up. The right(120) command diagonally changes the turtle's direction down to the left. Both commands create the diagram's zig-zag peaks.
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Second Code </b>
+	initializeTurtle()
+	showturtle()
+	
+	jump(50, 400)
+	face(90)
+	
+	# Line with blip
+	forward(800 / 3)
+	left(60)
+	forward(800 / 3)
+	right(120)
+	forward(800 / 3)
+	left(60)
+	forward(800 / 3)
+	
+	show()
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Line%20with%20Blip%20Code.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 2:</strong> Illustration of the second code presented above.
+          </figcaption>
+        </figure>
+
+
+
+      </section>
+
+
+	<h2>Third Code: Generating Recursive Zig-Zag Patterns </h2>
+	
+	The third code uses recursion to generate a blip line, which becomes more complex with each recursion level. The function `blip_line()` divides a straight line into smaller segments, adding a distinctive blip (or zig-zag peak) at each level. The code demonstrates how recursive patterns can create intricate designs by drawing multiple blip lines of increasing order. <br>
+
+	I added two additional Blip lines with higher orders to the code. Initially, the code only drew two Blip lines of order 1 and order 2. Now, I have included two more Blip lines with order 3 and order 4. Below is the code I added to the initial version: <br>
+ # Order 3<br> 
+jump(50, 300)<br>
+face(90)<br>
+color('purple')<br>
+blip_line(800, 3) <br><br>
+
+# Order 4<br>
+jump(50, 250)<br>
+face(90)<br>
+color('magenta')<br>
+blip_line(800, 4) <br> 
+
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Third Code </b>
+	# Define the blip_line function
+	def blip_line(length, order):
+	    if order == 0:
+		forward(length)
+	    else:
+		blip_line(length / 3, order - 1)
+		left(60)
+		blip_line(length / 3, order - 1)
+		right(120)
+		blip_line(length / 3, order - 1)
+		left(60)
+		blip_line(length / 3, order - 1)
+	
+	initializeTurtle()
+	
+	# Draw blip lines of different orders
+	jump(50, 400)
+	face(90)
+	color('red')
+	blip_line(800, 1)  # Order 1
+	
+	jump(50, 350)
+	face(90)
+	color('blue')
+	blip_line(800, 2)  # Order 2
+	
+	jump(50, 300)
+	face(90)
+	color('purple')
+	blip_line(800, 3)  # Order 3
+	
+	jump(50, 250)
+	face(90)
+	color('magenta')
+	blip_line(800, 4)  # Order 4
+	
+	show()
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Recursive%20Zig%20Zag%20Pattern.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 3:</strong> Illustration of the third code presented above.
+          </figcaption>
+        </figure>
+
+
+
+
+	<h2> Fourth Code: Generating a Recursive Zig-Zag Pattern of Order 3 and 4 Using Turtle Graphics </h2>
+	
+	The fourth code uses turtle graphics and the recursive code from code 3 to generate a blip line for order 3. I modified the code to add another blip line for order 4. Initially, the code only drew a blip line for order 3 in green, but I enhanced it to include an order 4 blip line in red. Below is the code I added to the initial version: <br><br>
+ # Order 4<br> 
+jump(50, 300)<br>
+face(90)<br>
+color('red')<br>
+blip_line(800, 4)<br>
+
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Forth Code </b>
+	initializeTurtle()
+	showturtle()
+	
+	jump(50, 400)
+	face(90)
+	color('green')
+	blip_line(800, 3)  # Order 3
+	
+	jump(50, 300)
+	face(90)
+	color('red')
+	blip_line(800, 4)  # Order 4
+	
+		
+	show()
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Recursive%20Zig%20Zag%20Pattern_Turtle%20Graphics.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 4:</strong> Illustration of the fourth code presented above.
+          </figcaption>
+        </figure>
+
+
+
+
+
+	<h2> Fifth Code: Generating a Koch Snowflake of Order 1, 2, 3 and 4 Using Turtle Graphics </h2>
+	
+	The fifth code generates a Koch snowflake using recursion. The Koch snowflake is a fractal curve built iteratively through several stages. The first stage consists of an equilateral triangle, and each subsequent stage is created by adding outward bends to each side of the previous stage, resulting in smaller equilateral triangles. The code blip_line function makes the Koch curve and then calls the Koch function three times to form a triangular snowflake. I modified the code to draw Koch snowflakes of orders 1, 2, 3, and 4 to showcase the fractal's various stages.
+
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Fifth Code </b>
+	initializeTurtle()
+	showturtle()
+	
+	# Define the blip_line function (Koch curve)
+	def blip_line(length, order):
+	if order == 0:
+		forward(length)
+	else:
+		blip_line(length / 3, order - 1)
+		left(60)
+		blip_line(length / 3, order - 1)
+		right(120)
+		blip_line(length / 3, order - 1)
+		left(60)
+		blip_line(length / 3, order - 1)
+	
+	# Draw the Koch snowflake
+	def koch_snowflake(length, order):
+	for _ in range(3):
+		blip_line(length, order)
+		right(120)
+	
+	# Set up the turtle
+	jump(100, 500)
+	face(0)
+	color('blue')
+	
+	# Draw the snowflake
+	length = 200
+	order = 3
+	koch_snowflake(length, order)
+	
+	# Set up the turtle
+	jump(600, 500)
+	face(0)
+	color('magenta')
+	
+	# Draw the snowflake
+	length = 200
+	order = 4
+	koch_snowflake(length, order)
+		
+	# Set up the turtle
+	jump(100, 200)
+	face(0)
+	color('black')
+	
+	# Draw the snowflake
+	length = 200
+	order = 1
+	koch_snowflake(length, order)
+		
+	# Set up the turtle
+	jump(600, 200)
+	face(0)
+	color('purple')
+	
+	# Draw the snowflake
+	length = 200
+	order = 2
+	koch_snowflake(length, order)
+		
+	show()
+
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Koch%20Snowflake%20Using%20Turtle%20Graphics%20(Order1_2_3_4).png?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 5:</strong> Visualization of Koch snowflakes of orders 1 through 4, generated using recursive turtle graphics.
+          </figcaption>
+        </figure>
+
+
+
+
+
+
+	      
+<h2> Sixth Code: Generating the Dragon Fractal of Order 1, 3 and 10 Using Turtle Graphics </h2>
+
+	      The sixth and final code generates the Dragon Curve fractal using recursion and turtle graphics. The Dragon Curve is created from a base line segment by repeatedly replacing each segment with two new segments that form a right angle. This process involves alternating 45-degree rotations to the right and to the left. I modified the code to generate the Dragon Curve at orders 1, 3, and 10, showcasing the fractal at various stages.
+
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# <b>Sixth Code </b>
+	# Define the dragon curve function
+	def dragon_curve(order, length, turn_direction):
+		# Base case: if order is 0, just move forward
+		if order == 0:
+		   forward(length)
+		else:
+		    # Calculate the new length for each recursive step
+		    new_length = length / (2 ** 0.5)
+
+                    # Recursively draw the dragon curve, turning right and left as needed
+                    dragon_curve(order - 1, new_length, 1)  # First segment
+                    right(turn_direction * 90)             # Turn by 90 degrees
+                    dragon_curve(order - 1, new_length, -1) # Second segment
+		
+	# Initialize the turtle for drawing
+	initializeTurtle()
+	showturtle()
+
+
+	# Move the turtle to a starting position
+	jump(100, 400)
+	face(0)             # Set starting direction
+	color('purple')     # Choose a color
+
+	# Draw the dragon curve
+	order = 1          # Complexity level
+	length = 200        # Initial length of each segment
+	dragon_curve(order, length, 1)
+
+	# Move the turtle to a starting position
+	jump(400, 400)
+	face(0)             # Set starting direction
+	color('red')     # Choose a color
+
+
+	# Draw the dragon curve
+	order = 3          # Complexity level
+	length = 200        # Initial length of each segment
+	dragon_curve(order, length, 1)
+
+
+	# Move the turtle to a starting position
+	jump(700, 400)
+	face(0)             # Set starting direction
+	color('blue')     # Choose a color
+
+	# Draw the dragon curve
+	order = 10         # Complexity level
+	length = 200        # Initial length of each segment
+	dragon_curve(order, length, 1)
+
+
+	# Show the final drawing
+	show()
+		
+		
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Dragon%20Curve%20Using%20Turtle%20Graphics%20(Order%201_3_10).png?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 6:</strong> Visualization of Dragon Curve  of orders 1, 3, and 10 generated using recursive turtle graphics.
+          </figcaption>
+        </figure>
+
+
+
+	
+
+      </section>
+
+
+
+      <!-- CONCLUSION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------- ----------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>
+        Module 2 demonstrates how recursion and turtle graphics can be used to generate various fractal patterns. Each code example highlights a different aspect of recursion, including Brownian motion, the blip line that creates the zig-zag peak, the Koch snowflake, and the Dragon Curve fractals. 
+		
+	</p>
+      </section>
+
+	 <!-- REFERENCE SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------- ----------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+	    
+	<section id="References">
+        <h2>Reference</h2>
+        <p> 
+	[1] Brownian motion. (2025, January 26). In Wikipedia. https://en.wikipedia.org/wiki/Brownian_motion<br><br>
+	[2] https://en.wikipedia.org/wiki/Koch_snowflake <br><br>
+	[3] https://en.wikipedia.org/wiki/Dragon_curve#Heighway_dragon
+	
+	</p>
+	
+      </section>
+     
+     
+   
+     
+     
+     
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
