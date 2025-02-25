@@ -114,11 +114,12 @@
       </section>
 
 
-	<h2>Second Code: Turtle Graphics (Drawing a Line with a Zig- Zag Peak) </h2>
+	<h2>Second Code: Sierpinski Triangle Using Turtle Graphics </h2>
 	
-	The second code is relatively easy to follow. It initializes the turtle canvas, draws a straight line with a zig-zag peak in the middle, and then continues in a straight line. <br>
+	The code defines a recursive function called 'sierpinski_triangle(length, order)' that draws a Sierpinski triangle. The base case for the recursion occurs when the order is 0; in this case, the function draws a simple equilateral triangle. If the order is greater than 0, the function recursively calls itself three times with half the length and one less order, positioning the three smaller Sierpinski triangles to form a larger triangle. <br> 
+	I modified the code to generate the Sierpinski triangle for orders 1 through 4. Initially, the code was created to display the Sierpinski triangle for order 4. Below is the additional code I implemented in the initial version:
 
-	The 'Forward(800/3)' command moves the turtle forward in its current direction and is used four times in the code. Initially, it moves the turtle forward before the zig-zag pattern begins. Next, it moves the turtle diagonally to the right to start the peak. Then, it moves the turtle diagonally to the left to complete the peak. Finally, it moves the turtle forward again to finish the straight line. The left(60) command changes the turtle's direction diagonally up. The right(120) command diagonally changes the turtle's direction down to the left. Both commands create the diagram's zig-zag peaks.
+	    
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<!-- -------------------------------------------------------------------------------------------- -->
@@ -126,22 +127,67 @@
 	<section id="code">
 	<pre><code class="language-python">
 		
-	# <b>Second Code </b>
+	# Define the recursive Sierpinski triangle function
+	def sierpinski_triangle(length, order):
+	     if order == 0:
+		draw_triangle(length)
+             else:
+		sierpinski_triangle(length / 2, order - 1)
+		forward(length / 2)
+		sierpinski_triangle(length / 2, order - 1)
+		backward(length / 2)
+		left(60)
+		forward(length / 2)
+		right(60)
+		sierpinski_triangle(length / 2, order - 1)
+		left(60)
+		backward(length / 2)
+		right(60)
+
+
+
 	initializeTurtle()
 	showturtle()
-	
-	jump(50, 400)
+	# Set up the turtle
+	jump(100, 200)
 	face(90)
-	
-	# Line with blip
-	forward(800 / 3)
-	left(60)
-	forward(800 / 3)
-	right(120)
-	forward(800 / 3)
-	left(60)
-	forward(800 / 3)
-	
+	color('green')
+
+	# Draw the Sierpinski triangle order 1
+	length = 200
+	order = 1
+	sierpinski_triangle(length, order)
+
+
+	# Set up the turtle
+	jump(400, 200)
+	face(90)
+	color('red')
+
+	# Draw the Sierpinski triangle order 2
+	length = 200
+	order = 2
+	sierpinski_triangle(length, order)
+
+	# Set up the turtle
+	jump(100, 500)
+	face(90)
+	color('blue')
+
+	# Draw the Sierpinski triangle order 3
+	length = 200
+	order = 3
+	sierpinski_triangle(length, order)
+
+	# Set up the turtle
+	jump(400, 500)
+	face(90)
+	color('magenta')
+
+	# Draw the Sierpinski triangle order 4
+	length = 300
+	order = 4
+	sierpinski_triangle(length, order)
 	show()
 		
 	</code></pre>
@@ -164,14 +210,14 @@
 
         <figure>
           <img
-            src="https://github.com/ayoung37/labreports/blob/main/Line%20with%20Blip%20Code.PNG?raw=true"
+            src="https://github.com/ayoung37/labreports/blob/main/Sierpinski%20Triangle.PNG?raw=true"
             alt="Turtle Graphics Broad View"
             width="500"
             height="400"
             loading="lazy"
           />
           <figcaption>
-            <strong><br>Figure 2:</strong> Illustration of the second code presented above.
+            <strong><br>Figure 2:</strong> Illustration of Sierpinski Triangles from order 1 to order 4.
           </figcaption>
         </figure>
 
