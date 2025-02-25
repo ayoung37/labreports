@@ -19,7 +19,7 @@
     <h1>Fractal Geometry Lab Report # 3 </h1>
     <p class="author">
       Alecia Young <br />
-      February 6, 2025
+      February 24, 2025
     </p>
   </header>
   
@@ -36,12 +36,14 @@
       <section id="introduction">
         <h2>Introduction</h2>
 
-	<h2>First Code: Brownian Motion</h2>
+	Module 3 focused on creating the Sierpinski triangle. The Sierpinski triangle is a fractal with the overall shape of an equilateral triangle, subdivided recursively into smaller equilateral triangles [1]. 
+
+	<h2>First Code: Equilateral Triangle</h2>
         <p>
   
-         Module 2 began with code that simulates Brownian motion. Brownian motion is the random movement of particles suspended in a medium such as a liquid or gas [1]. It is erratic and unpredictable.<br>
+        The first code in Module 3 constructs an equilateral triangle using turtle graphics. The code begins by defining a function called `draw_triangle(length),` which instructs the turtle to draw a triangle with three equal sides. Each side is drawn by moving the turtle forward and then rotating it by 120 degrees. <br>
 
-
+	Similar to the other codes in modules 1 and 2, the command 'Jump(300, 500)' controls the position of the triangle on the canvas. The 'Face(90)' command controls the triangle's orientation. The function 'color('green')' sets the triangle's color to green. Additionally, 'length = 400' establishes the triangle's length as 400 units. <br>
 	</p>
       </section>
 
@@ -54,45 +56,31 @@
 	<section id="code">
 	<pre><code class="language-python">
 		
-	# <b>Brownian Motion #1 </b>
-	import random
-	
-	# Step 1: Initialize the turtle canvas
-	canvas_width = 1000
-	canvas_height = 800
-	initializeTurtle(initial_window_size=(canvas_width, canvas_height), mode='auto')
-	
-	# Step 2: Function to perform a random walk (Brownian motion)
-	def random_walk(steps, step_length):
-		speed(0)             # Set speed to maximum for faster drawing
-		penup()
-		jump(450, 450)       # Start near the middle of the canvas
-		pendown()
-		
-		for _ in range(steps):
-			forward(step_length)               # Move forward by the step length
-			right(random.uniform(-180, 180))   # Turn by a random angle between -180 and 180 degrees
-	
-	# Step 3: Execute the random walk with increased steps and/or step length
-	steps = 1000
-	step_length = 10
+	# Define the function to draw an equilateral triangle
+	def draw_triangle(length):
+	    for _ in range(3):
+		forward(length)
+		left(120)
 
-	random_walk(steps, step_length)
+	initializeTurtle()
+	showturtle()
 	
-	# Step 4: Display the result
+	# Define the function to draw an equilateral triangle
+	def draw_triangle(length):
+	    for _ in range(3):
+		forward(length)
+		left(120)
+	
+	# Set up the turtle
+	jump(300, 500)
+	face(90)
+	color('green')
+	length = 400
+	draw_triangle(length)
+	
 	show()
-		
 	</code></pre>
 
-	The code begins by installing and downloading the `turtle_setup.py` Python script from GitHub.<br>
-	In step 1, the code initializes the turtle canvas by setting the dimensions and the size of the turtle graphics window to 1000 pixels wide and 800 pixels high. The following code initializes the turtle canvas:<br>
-	<b>```python<br>
-	# Step 1: Initialize the turtle canvas<br>
-	canvas_width = 1000<br>
-	canvas_height = 800<br>
-	initializeTurtle(initial_window_size=(canvas_width, canvas_height), mode='auto')```</b><br>
-	
-	In step 3, the code defines a random walk function by starting the turtle at the coordinates (450, 450), which is the center of the canvas. The turtle moves at maximum speed. After each step, the turtle turns at a random angle between -180 degrees and 180 degrees, resulting in an unpredictable path.
 
 	 </section>
 
@@ -600,9 +588,8 @@ blip_line(800, 4)<br>
 	<section id="References">
         <h2>Reference</h2>
         <p> 
-	[1] Brownian motion. (2025, January 26). In Wikipedia. https://en.wikipedia.org/wiki/Brownian_motion<br><br>
-	[2] https://en.wikipedia.org/wiki/Koch_snowflake <br><br>
-	[3] https://en.wikipedia.org/wiki/Dragon_curve#Heighway_dragon
+	[1] Sierpiński triangle. In Wikipedia. https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle <br><br>
+	
 	
 	</p>
 	
