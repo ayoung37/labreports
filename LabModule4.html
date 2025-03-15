@@ -85,6 +85,25 @@
 		
 		left(30)
 		backward(length)
+
+
+	# Initialize the turtle
+	initializeTurtle(initial_window_size=(500, 500))
+	
+	# Set up the turtle's starting position and orientation
+	jump(250, 450)  # Starting position at the bottom center of the canvas
+	face(0)
+	color('green')  # Set the pen color
+	
+	# Set the length and depth for the fractal tree
+	length = 100  # Initial length of the main trunk
+	depth = 10     # Recursion depth (number of branching levels)
+
+	# Draw the fractal tree
+	fractal_tree(length, depth)
+	
+	# Display the drawing
+	show()
 	</code></pre>
 
 
