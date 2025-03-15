@@ -44,7 +44,14 @@
 	3) <b>Return Value:</b> This combines various outputs produced by the recursive calls. It typically involves aggregating or calculating data based on the results of these calls. <br><br>
 
 	Fractal trees are patterns that exhibit self-similarity, meaning they repeat the same shape or design at different scales. Several algorithms can be used to generate fractal trees, but the simplest method is the recursive approach. Recursion reduces the effort of defining numerous variables and prevents spaghetti code.      
+
+	<u><b>Breakdown of the Code:</b></u> <br><br>
 	
+	1) Base Case (if depth == 0): The recursion stops when the depth parameter reaches zero, indicating that no further branching should happen at this level. <br>
+	2) Drawing the Main Branch (forward(length)): The turtle moves forward by the specified length, drawing the main branch of the current recursion level.<br>
+	3) Left Subtree: The turtle turns left by 30 degrees (left(30)). A recursive call to fractal_tree is made with a reduced length (length * 0.7) and decreased depth (depth - 1), drawing the left subtree. <br>
+	4) Right Subtree: After completing the left subtree, the turtle turns 60 degrees to the right (right(60)) from its current heading. It then makes another recursive call to fractal_tree with the same reduced length and depth to draw the right subtree.<br>
+	5) Resetting Position and Orientation: The turtle turns left by 30 degrees (left(30)) to realign with its original heading before the recursive calls. It then moves backward by the original branch length (backward(length)) to return to the starting position of the current branch, ensuring that subsequent branches are drawn correctly.
 	      
 	<h2>First Code: Fractal Tree </h2>
         <p>
@@ -117,7 +124,6 @@
 	
 	The code defines a recursive function called 'sierpinski_triangle(length, order)' that draws a Sierpinski triangle. The base case for the recursion occurs when the order is 0; in this case, the function draws a simple equilateral triangle. If the order is greater than 0, the function recursively calls itself three times with half the length and one less order, positioning the three smaller Sierpinski triangles to form a larger triangle. <br> 
 	I modified the code to generate the Sierpinski triangle for orders 1 through 4. Initially, the code was created to display the Sierpinski triangle for order 4. Below is the additional code I implemented in the initial version:
-
 	    
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<!-- -------------------------------------------------------------------------------------------- -->
