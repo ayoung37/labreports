@@ -13,6 +13,8 @@ Module 2 Report: https://ayoung37.github.io/labreports/LabModule2.html
 
 Module 3 Report: https://ayoung37.github.io/labreports/LabModule3.html
 
+Module 4 Report:  https://ayoung37.github.io/labreports/LabModule4.html
+
 # Notes 
 
 Hello World
