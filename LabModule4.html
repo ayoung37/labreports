@@ -46,12 +46,10 @@
 	Fractal trees are patterns that exhibit self-similarity, meaning they repeat the same shape or design at different scales. Several algorithms can be used to generate fractal trees, but the simplest method is the recursive approach. Recursion reduces the effort of defining numerous variables and prevents spaghetti code.      
 	
 	      
-	<h2>First Code: Equilateral Triangle</h2>
+	<h2>First Code: Fractal Tree </h2>
         <p>
   
-        The first code in Module 3 constructs an equilateral triangle using turtle graphics. The code begins by defining a function called 'draw_triangle(length),' which instructs the turtle to draw a triangle with three equal sides. Each side is drawn by moving the turtle forward and then rotating it by 120 degrees. <br>
-
-	Similar to the other codes in modules 1 and 2, the command 'Jump(300, 500)' controls the position of the triangle on the canvas. The 'Face(90)' command controls the triangle's orientation. The function 'color('green')' sets the triangle's color to green. Additionally, 'length = 400' establishes the triangle's length as 400 units. <br>
+        The first code in Module 4 constructs a Fractal Tree using recursion. The fractal_tree function begins by moving the turtle forward to draw the main branch. It then recursively creates two smaller branches: one to the left and one to the right, each at a 30-degree angle to the main branch. This process continues, with each branch generating two smaller branches, until the specified recursion depth is reached. Afterward, the turtle backtracks to its previous position, ensuring the tree structure is generated accurately. <br>
 	</p>
       </section>
 
@@ -64,29 +62,22 @@
 	<section id="code">
 	<pre><code class="language-python">
 		
-	# Define the function to draw an equilateral triangle
-	def draw_triangle(length):
-	    for _ in range(3):
+	# Function to draw a fractal tree using recursion
+	def fractal_tree(length, depth):
+	    if depth == 0:
+		return
+	    else:
 		forward(length)
-		left(120)
-
-	initializeTurtle()
-	showturtle()
-	
-	# Define the function to draw an equilateral triangle
-	def draw_triangle(length):
-	    for _ in range(3):
-		forward(length)
-		left(120)
-	
-	# Set up the turtle
-	jump(300, 500)
-	face(90)
-	color('green')
-	length = 400
-	draw_triangle(length)
-	
-	show()
+		left(30)
+		
+		fractal_tree(length * 0.7, depth - 1)
+		
+		right(60)
+		
+		fractal_tree(length * 0.7, depth - 1)
+		
+		left(30)
+		backward(length)
 	</code></pre>
 
 
