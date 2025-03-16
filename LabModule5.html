@@ -36,7 +36,7 @@
       <section id="introduction">
         <h2>Introduction</h2>
 
-	Module 4 focused on recusion and fractal trees. Recursion is a function that calls itself. It breaks down a problem into simpler steps until it reaches the simplest or most fundamental case, the base case. This method works analytically, starting from the data and repeating itself until the base case is achieved. It follows a top-down approach, reducing tasks as it calls itself repeatedly [1]. <br><br>
+	Module 5 focused on Cantor set.The Cantor set is a collection of points on a single line segment with several counterintuitive properties. Mathematician Henry John Stephen Smith discovered it in 1874. <br><br>
 	
 	<b>Parts of Recursion:</b> <br>
 	1) <b>Base Case:</b> This is the condition that terminates the recursive method. It is the fundamental step that can be solved without additional recursive calls. When this condition is met, the recursive method begins to unwind, returning a value at each level of recursion that is resolved.<br><br>
@@ -69,41 +69,47 @@
 	<section id="code">
 	<pre><code class="language-python">
 		
-	# Function to draw a fractal tree using recursion
-	def fractal_tree(length, depth):
-	    if depth == 0:
-		return
-	    else:
-		forward(length)
-		left(30)
-		
-		fractal_tree(length * 0.7, depth - 1)
-		
-		right(60)
-		
-		fractal_tree(length * 0.7, depth - 1)
-		
-		left(30)
-		backward(length)
+# Import libraries for math and plotting
+import numpy as np
+import matplotlib.pyplot as plt
 
+# Set initial parameters
+x_start = 0       # Starting x-coordinate of the first bar
+x_end = 3         # Ending x-coordinate of the first bar
+y_position = 0    # Starting y-coordinate (height of the first bar)
+bar_height = 5    # Height of each bar
+spacing = 10      # Space between bars (distance downwards)
+depth = 6         # Number of levels to draw
 
-	# Initialize the turtle
-	initializeTurtle(initial_window_size=(500, 500))
-	
-	# Set up the turtle's starting position and orientation
-	jump(250, 450)  # Starting position at the bottom center of the canvas
-	face(0)
-	color('green')  # Set the pen color
-	
-	# Set the length and depth for the fractal tree
-	length = 100  # Initial length of the main trunk
-	depth = 10     # Recursion depth (number of branching levels)
+# Define a function to create the Cantor Set pattern
+def cantor_set(x_start, x_end, y_position, depth):
+    if depth == 0:
+        return []
 
-	# Draw the fractal tree
-	fractal_tree(length, depth)
-	
-	# Display the drawing
-	show()
+    # Left and right segments for the current bar
+    left_segment = [[x_start, x_start + (x_end - x_start) / 3, y_position]]
+    right_segment = [[x_end - (x_end - x_start) / 3, x_end, y_position]]
+
+    # Recursively generate segments for the next levels
+    left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 3, y_position - spacing, depth - 1)
+    right_recursive = cantor_set(x_end - (x_end - x_start) / 3, x_end, y_position - spacing, depth - 1)
+
+    # Combine the current segments with the results from recursive calls
+    return left_segment + right_segment + left_recursive + right_recursive
+
+# Generate Cantor Set segments data
+segments = np.array(cantor_set(x_start, x_end, y_position, depth))  # Convert to an array for easy plotting
+
+# Plot the Cantor Set
+plt.figure(figsize=(25, 25))
+
+# Draw each segment as a black bar
+for x_start, x_end, y in segments:
+    plt.fill_between([x_start, x_end], [y] * 2, [y - bar_height] * 2, color="black")
+
+# Hide the axes for a clean look
+plt.axis('off')
+plt.show()
 	</code></pre>
 
 
@@ -253,8 +259,8 @@
 	<section id="References">
         <h2>Reference</h2>
         <p> 
-	[1] (2023, March 1). Fractal Trees in Java | Recursion Explained. Medium. https://projectjava.medium.com/fractal-trees-in-java-recursion-explained-7bc1b6e6bd57 <br><br>
-	[2] https://youtu.be/ob8teyuR8dA?si=QyFX0cws_tw9s9rr <br><br>
+	[1] https://en.wikipedia.org/wiki/Cantor_set <br><br>
+	[2]  <br><br>
 	
 	
 	</p>
