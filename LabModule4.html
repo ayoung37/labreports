@@ -139,10 +139,23 @@
       </section>
 
 
-	<h2>Second Code: Sierpinski Triangle Using Turtle Graphics </h2>
+	<h2>Second Code: Another Fractal Tree </h2>
 	
-	The code defines a recursive function called 'sierpinski_triangle(length, order)' that draws a Sierpinski triangle. The base case for the recursion occurs when the order is 0; in this case, the function draws a simple equilateral triangle. If the order is greater than 0, the function recursively calls itself three times with half the length and one less order, positioning the three smaller Sierpinski triangles to form a larger triangle. <br> 
-	I modified the code to generate the Sierpinski triangle for orders 1 through 4. Initially, the code was created to display the Sierpinski triangle for order 4. Below is the additional code I implemented in the initial version:
+	The second code is another code for a fractal tree. 
+	<b><u>Breakdown of the Code</b></u><br> 
+	• <b>Base Case:</b> The recursion stops when branch_length is 3 or less, preventing infinite recursion and terminating the drawing of further branches.<br>
+	<b>Drawing the Branch:</b><br>
+	• <b>forward(branch_length):</b> Moves the turtle forward, drawing the current branch.<br>
+	• <b>new_length = branch_length - shorten_by:</b> Calculates the length for subsequent branches, reducing it by the shorten_by value.
+	<b>Left Sub-Branch:</b> <br>
+	• <b>left(angle): </b>Rotates the turtle left by the specified angle.<br>
+	•<b>build_tree(new_length, shorten_by, angle):</b>  Recursively draws the left sub-branch with the new length.<br>
+	<b>Right Sub-Branch:</b> <br><br>
+	• <b>right(angle * 2): </b>Rotates the turtle right by twice the specified angle to position it correctly for the right sub-branch.<br>
+	•<b>build_tree(new_length, shorten_by, angle): </b> Recursively draws the right sub-branch.<br>
+	<b>Reset Position and Orientation:</b><br>
+	•<b> left(angle):</b> Returns the turtle to its original orientation.<br>
+	• <b>backward(branch_length):</b> Moves the turtle back to its starting position for the current branch.<br>
 	    
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<!-- -------------------------------------------------------------------------------------------- -->
