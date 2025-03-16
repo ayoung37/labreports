@@ -163,70 +163,33 @@
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<section id="code">
 	<pre><code class="language-python">
-		
-	# Define the recursive Sierpinski triangle function
-	def sierpinski_triangle(length, order):
-	     if order == 0:
-		draw_triangle(length)
-             else:
-		sierpinski_triangle(length / 2, order - 1)
-		forward(length / 2)
-		sierpinski_triangle(length / 2, order - 1)
-		backward(length / 2)
-		left(60)
-		forward(length / 2)
-		right(60)
-		sierpinski_triangle(length / 2, order - 1)
-		left(60)
-		backward(length / 2)
-		right(60)
+	# Define the fractal tree function
+	def build_tree(branch_length, shorten_by, angle):
+	    if branch_length > 3:
+		forward(branch_length)
+		new_length = branch_length - shorten_by
+		left(angle)
+		build_tree(new_length, shorten_by, angle)
+		right(angle * 2)
+		build_tree(new_length, shorten_by, angle)
+		left(angle)
+		backward(branch_length)
 
 
+	# Initialize the turtle
+	initializeTurtle(initial_window_size=(800, 800))
 
-	initializeTurtle()
-	showturtle()
-	# Set up the turtle
-	jump(100, 200)
-	face(90)
-	color('green')
+	# Set up the turtle's starting position and orientation
+	jump(400, 600)  # Starting position at the bottom center of the canvas
+	face(0)
+	color('green')  # Set the pen color
 
-	# Draw the Sierpinski triangle order 1
-	length = 200
-	order = 1
-	sierpinski_triangle(length, order)
+	# Draw the fractal tree
+	build_tree(80, 8, 25)
 
-
-	# Set up the turtle
-	jump(400, 200)
-	face(90)
-	color('red')
-
-	# Draw the Sierpinski triangle order 2
-	length = 200
-	order = 2
-	sierpinski_triangle(length, order)
-
-	# Set up the turtle
-	jump(100, 500)
-	face(90)
-	color('blue')
-
-	# Draw the Sierpinski triangle order 3
-	length = 200
-	order = 3
-	sierpinski_triangle(length, order)
-
-	# Set up the turtle
-	jump(400, 500)
-	face(90)
-	color('magenta')
-
-	# Draw the Sierpinski triangle order 4
-	length = 300
-	order = 4
-	sierpinski_triangle(length, order)
+	# Display the drawing
 	show()
-		
+
 	</code></pre>
 
 	
