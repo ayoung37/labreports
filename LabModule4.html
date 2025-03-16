@@ -143,14 +143,14 @@
 	
 	The second code is another code for a fractal tree. <br>
 	<b><u>Breakdown of the Code</b></u><br> 
-	• <b>Base Case:</b> The recursion stops when branch_length is 3 or less, preventing infinite recursion and terminating the drawing of further branches.<br>
-	<u><b>Drawing the Branch:</b></u><br>
+	1) Base Case: The recursion stops when branch_length is 3 or less, preventing infinite recursion and terminating the drawing of further branches.<br>
+	2) Drawing the Branch:<br>
 	• <b>forward(branch_length):</b> Moves the turtle forward, drawing the current branch.<br>
 	• <b>new_length = branch_length - shorten_by:</b> Calculates the length for subsequent branches, reducing it by the shorten_by value.
-	<b><u>Left Sub-Branch:</b></u><br>
+	3) Left Subtree:<br>
 	• <b>left(angle): </b>Rotates the turtle left by the specified angle.<br>
 	•<b>build_tree(new_length, shorten_by, angle):</b>  Recursively draws the left sub-branch with the new length.<br>
-	<u><b>Right Sub-Branch:</b></u><br>
+	4) Right Sub-Branch:<br>
 	• <b>right(angle * 2): </b>Rotates the turtle right by twice the specified angle to position it correctly for the right sub-branch.<br>
 	•<b>build_tree(new_length, shorten_by, angle): </b> Recursively draws the right sub-branch.<br>
 	<b>Reset Position and Orientation:</b><br>
