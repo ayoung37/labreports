@@ -1,0 +1,273 @@
+<!-- INTRODUCTION SECTION -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<html>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="https://latex.vercel.app/style.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"/><script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+
+<title>Fractal Geometry Lab Report</title>
+
+</head>
+	
+<body id="top">
+
+
+
+
+  <header>
+    <h1>Fractal Geometry Lab Report # 5 </h1>
+    <p class="author">
+      Alecia Young <br />
+      March 17, 2025
+    </p>
+  </header>
+  
+
+
+  <main>
+    <article class="indent-pars">
+      
+      <!-- INTRODUCTION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="introduction">
+        <h2>Introduction</h2>
+
+	Module 4 focused on recusion and fractal trees. Recursion is a function that calls itself. It breaks down a problem into simpler steps until it reaches the simplest or most fundamental case, the base case. This method works analytically, starting from the data and repeating itself until the base case is achieved. It follows a top-down approach, reducing tasks as it calls itself repeatedly [1]. <br><br>
+	
+	<b>Parts of Recursion:</b> <br>
+	1) <b>Base Case:</b> This is the condition that terminates the recursive method. It is the fundamental step that can be solved without additional recursive calls. When this condition is met, the recursive method begins to unwind, returning a value at each level of recursion that is resolved.<br><br>
+	2) <b>Recursive Step:</b> This step, which is generally based on the principle of mathematical induction, defines a problem in terms of smaller subproblems. It involves invoking the same function with a reduced set of inputs. <br><br>
+	3) <b>Return Value:</b> This combines various outputs produced by the recursive calls. It typically involves aggregating or calculating data based on the results of these calls. <br><br>
+
+	Fractal trees are patterns that exhibit self-similarity, meaning they repeat the same shape or design at different scales. Several algorithms can be used to generate fractal trees, but the simplest method is the recursive approach. Recursion reduces the effort of defining numerous variables and prevents spaghetti code. <br><br> 
+	      
+	<h2>First Code: Fractal Tree </h2>
+        <p>
+  
+        The first code in Module 4 constructs a Fractal Tree using recursion. The fractal_tree function begins by moving the turtle forward to draw the main branch. It then recursively creates two smaller branches: one to the left and one to the right, each at a 30-degree angle to the main branch. This process continues, with each branch generating two smaller branches, until the specified recursion depth is reached. Afterward, the turtle backtracks to its previous position, ensuring the tree structure is generated accurately.<br><br>
+
+	<u><b>Breakdown of the Code:</b></u> <br><br>
+	1) Base Case (if depth == 0): The recursion stops when the depth parameter reaches zero, indicating that no further branching should happen at this level.<br><br>
+	2) Drawing the Main Branch (forward(length)): The turtle moves forward by the specified length, drawing the main branch of the current recursion level.<br><br>
+	3) Left Subtree: The turtle turns left by 30 degrees (left(30)). A recursive call to fractal_tree is made with a reduced length (length * 0.7) and decreased depth (depth - 1), drawing the left subtree. <br><br>
+	4) Right Subtree: After completing the left subtree, the turtle turns 60 degrees to the right (right(60)) from its current heading. It then makes another recursive call to fractal_tree with the same reduced length and depth to draw the right subtree.<br><br>
+	5) Resetting Position and Orientation: The turtle turns left by 30 degrees (left(30)) to realign with its original heading before the recursive calls. It then moves backward by the original branch length (backward(length)) to return to the starting position of the current branch, ensuring that subsequent branches are drawn correctly.<br><br>
+		
+	</p>
+      </section>
+
+
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+	# Function to draw a fractal tree using recursion
+	def fractal_tree(length, depth):
+	    if depth == 0:
+		return
+	    else:
+		forward(length)
+		left(30)
+		
+		fractal_tree(length * 0.7, depth - 1)
+		
+		right(60)
+		
+		fractal_tree(length * 0.7, depth - 1)
+		
+		left(30)
+		backward(length)
+
+
+	# Initialize the turtle
+	initializeTurtle(initial_window_size=(500, 500))
+	
+	# Set up the turtle's starting position and orientation
+	jump(250, 450)  # Starting position at the bottom center of the canvas
+	face(0)
+	color('green')  # Set the pen color
+	
+	# Set the length and depth for the fractal tree
+	length = 100  # Initial length of the main trunk
+	depth = 10     # Recursion depth (number of branching levels)
+
+	# Draw the fractal tree
+	fractal_tree(length, depth)
+	
+	# Display the drawing
+	show()
+	</code></pre>
+
+
+	 </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+          The diagram below shows the code for the Fractal Tree above. 
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Equilateral%20Triangle.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 1:</strong> Fractal Tree.
+          </figcaption>
+        </figure>
+
+
+      </section>
+
+
+	<h2>Second Code: Another Fractal Tree </h2>
+	
+	The second code is another code for a fractal tree. <br>
+	<b><u>Breakdown of the Code</b></u><br> 
+	1) Base Case: The recursion stops when branch_length is 3 or less, preventing infinite recursion and terminating the drawing of further branches.<br>
+	2) Drawing the Branch:<br>
+	• forward(branch_length): Moves the turtle forward, drawing the current branch.<br>
+	• new_length = branch_length - shorten_by: Calculates the length for subsequent branches, reducing it by the shorten_by value.<br>
+	3) Left Sub-Branch:<br>
+	• left(angle): Rotates the turtle left by the specified angle.<br>
+	•build_tree(new_length, shorten_by, angle): Recursively draws the left sub-branch with the new length.<br>
+	4) Right Sub-Branch:<br>
+	• right(angle * 2):Rotates the turtle right by twice the specified angle to position it correctly for the right sub-branch.<br>
+	•build_tree(new_length, shorten_by, angle): Recursively draws the right sub-branch.<br>
+	5) Reset Position and Orientation:<br>
+	•left(angle): Returns the turtle to its original orientation.<br>
+	• backward(branch_length): Moves the turtle back to its starting position for the current branch.<br>
+	    
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+	# Define the fractal tree function
+	def build_tree(branch_length, shorten_by, angle):
+	    if branch_length > 3:
+		forward(branch_length)
+		new_length = branch_length - shorten_by
+		left(angle)
+		build_tree(new_length, shorten_by, angle)
+		right(angle * 2)
+		build_tree(new_length, shorten_by, angle)
+		left(angle)
+		backward(branch_length)
+
+
+	# Initialize the turtle
+	initializeTurtle(initial_window_size=(800, 800))
+
+	# Set up the turtle's starting position and orientation
+	jump(400, 600)  # Starting position at the bottom center of the canvas
+	face(0)
+	color('green')  # Set the pen color
+
+	# Draw the fractal tree
+	build_tree(80, 8, 25)
+
+	# Display the drawing
+	show()
+
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Sierpinski%20Triangle.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 2:</strong> Illustration of Sierpinski Triangles from order 1 to order 4.
+          </figcaption>
+        </figure>
+
+
+
+      </section>
+
+
+
+      </section>
+
+
+
+      <!-- CONCLUSION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------- ----------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>
+        Module 3 demonstrates how the turtle graphics and cellular automata can be used to generate the Sierpinski fractal patterns. 
+		
+	</p>
+      </section>
+
+	 <!-- REFERENCE SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------- ----------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+	    
+	<section id="References">
+        <h2>Reference</h2>
+        <p> 
+	[1] (2023, March 1). Fractal Trees in Java | Recursion Explained. Medium. https://projectjava.medium.com/fractal-trees-in-java-recursion-explained-7bc1b6e6bd57 <br><br>
+	[2] https://youtu.be/ob8teyuR8dA?si=QyFX0cws_tw9s9rr <br><br>
+	
+	
+	</p>
+	
+      </section>
+     
+     
+   
+     
+     
+     
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
