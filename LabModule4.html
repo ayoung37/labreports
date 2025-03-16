@@ -146,8 +146,8 @@
 	1) Base Case: The recursion stops when branch_length is 3 or less, preventing infinite recursion and terminating the drawing of further branches.<br>
 	2) Drawing the Branch:<br>
 	• forward(branch_length): Moves the turtle forward, drawing the current branch.<br>
-	• new_length = branch_length - shorten_by: Calculates the length for subsequent branches, reducing it by the shorten_by value.
-	3) Left Subtree:<br>
+	• new_length = branch_length - shorten_by: Calculates the length for subsequent branches, reducing it by the shorten_by value.<br>
+	3) Left Sub-Branch:<br>
 	• left(angle): Rotates the turtle left by the specified angle.<br>
 	•build_tree(new_length, shorten_by, angle): Recursively draws the left sub-branch with the new length.<br>
 	4) Right Sub-Branch:<br>
