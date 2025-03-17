@@ -36,20 +36,18 @@
       <section id="introduction">
         <h2>Introduction</h2>
 
-	Module 5 focused on Cantor set.The Cantor set is a collection of points on a single line segment with several counterintuitive properties. Mathematician Henry John Stephen Smith discovered it in 1874. <br><br>
-	
-	<b>Parts of Recursion:</b> <br>
-	1) <b>Base Case:</b> This is the condition that terminates the recursive method. It is the fundamental step that can be solved without additional recursive calls. When this condition is met, the recursive method begins to unwind, returning a value at each level of recursion that is resolved.<br><br>
-	2) <b>Recursive Step:</b> This step, which is generally based on the principle of mathematical induction, defines a problem in terms of smaller subproblems. It involves invoking the same function with a reduced set of inputs. <br><br>
-	3) <b>Return Value:</b> This combines various outputs produced by the recursive calls. It typically involves aggregating or calculating data based on the results of these calls. <br><br>
-
-	Fractal trees are patterns that exhibit self-similarity, meaning they repeat the same shape or design at different scales. Several algorithms can be used to generate fractal trees, but the simplest method is the recursive approach. Recursion reduces the effort of defining numerous variables and prevents spaghetti code. <br><br> 
+	Module 5 focused on Cantor set.The Cantor set is a fractal created by taking a line segment and repeatedly removing the middle third of the remaining segments. It was discovered by the mathematician Henry John Stephen Smith in 1874. <br>
+	<b><u>Steps to construct the Cantor set: </b></u><br>
+	1. Start with a line segment.<br>
+	2. Divide the segment into three equal parts and remove the middle third.<br>
+	3. Repeat this process for each of the remaining segments.<br>
 	      
-	<h2>First Code: Fractal Tree </h2>
+
+	      
+	<h2>First Code: Cantor Set </h2>
         <p>
   
-        The first code in Module 4 constructs a Fractal Tree using recursion. The fractal_tree function begins by moving the turtle forward to draw the main branch. It then recursively creates two smaller branches: one to the left and one to the right, each at a 30-degree angle to the main branch. This process continues, with each branch generating two smaller branches, until the specified recursion depth is reached. Afterward, the turtle backtracks to its previous position, ensuring the tree structure is generated accurately.<br><br>
-
+        The first code construct the cantor set. <br><br>
 	<u><b>Breakdown of the Code:</b></u> <br><br>
 	1) Base Case (if depth == 0): The recursion stops when the depth parameter reaches zero, indicating that no further branching should happen at this level.<br><br>
 	2) Drawing the Main Branch (forward(length)): The turtle moves forward by the specified length, drawing the main branch of the current recursion level.<br><br>
