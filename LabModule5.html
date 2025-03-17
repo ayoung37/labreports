@@ -174,95 +174,6 @@ plt.show()
 
       </section>
 
-
-	<h2>Second Code: Another Fractal Tree </h2>
-	
-	The second code is another code for a fractal tree. <br>
-	<b><u>Breakdown of the Code</b></u><br> 
-	1) Base Case: The recursion stops when branch_length is 3 or less, preventing infinite recursion and terminating the drawing of further branches.<br>
-	2) Drawing the Branch:<br>
-	• forward(branch_length): Moves the turtle forward, drawing the current branch.<br>
-	• new_length = branch_length - shorten_by: Calculates the length for subsequent branches, reducing it by the shorten_by value.<br>
-	3) Left Sub-Branch:<br>
-	• left(angle): Rotates the turtle left by the specified angle.<br>
-	•build_tree(new_length, shorten_by, angle): Recursively draws the left sub-branch with the new length.<br>
-	4) Right Sub-Branch:<br>
-	• right(angle * 2):Rotates the turtle right by twice the specified angle to position it correctly for the right sub-branch.<br>
-	•build_tree(new_length, shorten_by, angle): Recursively draws the right sub-branch.<br>
-	5) Reset Position and Orientation:<br>
-	•left(angle): Returns the turtle to its original orientation.<br>
-	• backward(branch_length): Moves the turtle back to its starting position for the current branch.<br>
-	    
-	<!-- -------------------------------------------------------------------------------------------- -->
-	<!-- -------------------------------------------------------------------------------------------- -->
-	<!-- -------------------------------------------------------------------------------------------- -->
-	<!-- -------------------------------------------------------------------------------------------- -->
-	<section id="code">
-	<pre><code class="language-python">
-	# Define the fractal tree function
-	def build_tree(branch_length, shorten_by, angle):
-	    if branch_length > 3:
-		forward(branch_length)
-		new_length = branch_length - shorten_by
-		left(angle)
-		build_tree(new_length, shorten_by, angle)
-		right(angle * 2)
-		build_tree(new_length, shorten_by, angle)
-		left(angle)
-		backward(branch_length)
-
-
-	# Initialize the turtle
-	initializeTurtle(initial_window_size=(800, 800))
-
-	# Set up the turtle's starting position and orientation
-	jump(400, 600)  # Starting position at the bottom center of the canvas
-	face(0)
-	color('green')  # Set the pen color
-
-	# Draw the fractal tree
-	build_tree(80, 8, 25)
-
-	# Display the drawing
-	show()
-
-	</code></pre>
-
-	
-      </section>
-
-      <!-- RESULTS & ANALYSIS SECTION -->
-      <!-- -------------------------------------------------------------------------------------------- -->
-      <!-- -------------------------------------------------------------------------------------------- -->
-      <!-- -------------------------------------------------------------------------------------------- -->
-      <!-- -------------------------------------------------------------------------------------------- -->
-      <section id="results">
-      
-      
-        <h2>Results &amp; Analysis</h2>
-        <p>
-           
-        </p>
-
-        <figure>
-          <img
-            src="https://github.com/ayoung37/labreports/blob/main/Sierpinski%20Triangle.PNG?raw=true"
-            alt="Turtle Graphics Broad View"
-            width="500"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong><br>Figure 2:</strong> Illustration of Sierpinski Triangles from order 1 to order 4.
-          </figcaption>
-        </figure>
-
-
-
-      </section>
-
-
-
       </section>
 
 
@@ -275,7 +186,7 @@ plt.show()
       <section id="conclusion">
         <h2>Conclusion</h2>
         <p>
-        Module 3 demonstrates how the turtle graphics and cellular automata can be used to generate the Sierpinski fractal patterns. 
+        Module 4 illustrates how to generate the Cantor set using Python.
 		
 	</p>
       </section>
@@ -290,7 +201,6 @@ plt.show()
         <h2>Reference</h2>
         <p> 
 	[1] https://en.wikipedia.org/wiki/Cantor_set <br><br>
-	[2]  <br><br>
 	
 	
 	</p>
