@@ -24,7 +24,6 @@
   </header>
   
 
-
   <main>
     <article class="indent-pars">
       
@@ -75,6 +74,21 @@
     	# Combine the current segments with the results from recursive calls<br>
    	 return left_segment + right_segment + left_recursive + right_recursive<br>
 
+	3) After the recursive function generates the segment data, the program converts it into an array for plotting. <br> 
+	<u>Code</u><br>
+	# Generate Cantor Set segments data <br>
+	segments = np.array(cantor_set(x_start, x_end, y_position, depth)) # Convert to an array for easy plotting <br> 
+
+	# Plot the Cantor Set <br>
+	plt.figure(figsize=(25, 25))  <br>
+
+	# Draw each segment as a black bar  <br>
+	for x_start, x_end, y in segments:  <br>
+   	    plt.fill_between([x_start, x_end], [y] * 2, [y - bar_height] * 2, color="black")  <br>
+
+	# Hide the axes for a clean look  <br>
+	plt.axis('off')  <br>
+	plt.show()  <br>
 	</p>
       </section>
      
