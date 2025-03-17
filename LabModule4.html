@@ -225,6 +225,144 @@
 
       </section>
 
+	<h2>Second Code: Extend the Code </h2>
+	
+	To extend the code t <br>
+	<b><u>Breakdown of the Code</b></u><br> 
+	1) Base Case: The recursion stops when branch_length is 3 or less, preventing infinite recursion and terminating the drawing of further branches.<br>
+	2) Drawing the Branch:<br>
+	• forward(branch_length): Moves the turtle forward, drawing the current branch.<br>
+	• new_length = branch_length - shorten_by: Calculates the length for subsequent branches, reducing it by the shorten_by value.<br>
+	3) Left Sub-Branch:<br>
+	• left(angle): Rotates the turtle left by the specified angle.<br>
+	•build_tree(new_length, shorten_by, angle): Recursively draws the left sub-branch with the new length.<br>
+	4) Right Sub-Branch:<br>
+	• right(angle * 2):Rotates the turtle right by twice the specified angle to position it correctly for the right sub-branch.<br>
+	•build_tree(new_length, shorten_by, angle): Recursively draws the right sub-branch.<br>
+	5) Reset Position and Orientation:<br>
+	•left(angle): Returns the turtle to its original orientation.<br>
+	• backward(branch_length): Moves the turtle back to its starting position for the current branch.<br>
+	    
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+# Function to draw a fractal tree using recursion
+def fractal_tree(length, depth):
+    if depth == 0:
+        return
+     else:
+
+        forward(length)
+        left(30)
+
+        fractal_tree(length * 0.7, depth - 1)
+
+        right(60)
+
+        fractal_tree(length * 0.7, depth - 1)
+
+        left(30)
+        backward(length)
+
+# Initialize the turtle
+initializeTurtle(initial_window_size=(600, 600))
+
+#First Tree: Green Tree
+# Set up the turtle's starting position and orientation
+jump(300, 450)  # Starting position at the bottom center of the canvas
+face(0)
+color('green')  # Set the pen color
+# Set the length and depth for the fractal tree
+length = 100  # Initial length of the main trunk
+depth = 8     # Recursion depth (number of branching levels)
+# Draw the fractal tree
+fractal_tree(length, depth)
+
+#Second Tree: Brown (Titled Right)
+# Set up the turtle's starting position and orientation
+jump(300, 350)  # Starting position at the bottom center of the canvas
+face(45)
+color('brown')  # Set the pen color
+# Set the length and depth for the fractal tree
+length = 80  # Initial length of the main trunk
+depth = 6     # Recursion depth (number of branching levels)
+# Draw the fractal tree
+fractal_tree(length, depth)
+
+#Third Tree: Pink (Titled Left)
+# Set up the turtle's starting position and orientation
+jump(300, 350)  # Starting position at the bottom center of the canvas
+face(-45)
+color('pink')  # Set the pen color
+# Set the length and depth for the fractal tree
+length = 80  # Initial length of the main trunk
+depth = 6     # Recursion depth (number of branching levels)
+# Draw the fractal tree
+fractal_tree(length, depth)
+
+#Fourth Tree: Blue (Buttom Left)
+# Set up the turtle's starting position and orientation
+jump(300, 400)  # Starting position at the bottom center of the canvas
+face(-30)
+color('blue')  # Set the pen color
+# Set the length and depth for the fractal tree
+length = 80  # Initial length of the main trunk
+depth = 6     # Recursion depth (number of branching levels)
+# Draw the fractal tree
+fractal_tree(length, depth)
+
+
+#Fifth Tree: Purple Tree(Buttom Right)
+# Set up the turtle's starting position and orientation
+jump(300, 400)  # Starting position at the bottom center of the canvas
+face(30)
+color('Purple')  # Set the pen color
+# Set the length and depth for the fractal tree
+length = 80  # Initial length of the main trunk
+depth = 6     # Recursion depth (number of branching levels)
+# Draw the fractal tree
+fractal_tree(length, depth)
+
+# Display the drawing
+show()
+	
+	</code></pre>
+
+	
+      </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+           
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Fractal%20Tree%20(Image%203).PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 2:</strong>  Illustration of the fractal tree generated by the code above.
+          </figcaption>
+        </figure>
+
+
+      </section>
+
 
 
       </section>
@@ -239,7 +377,7 @@
       <section id="conclusion">
         <h2>Conclusion</h2>
         <p>
-        Module 3 demonstrates how the turtle graphics and cellular automata can be used to generate the Sierpinski fractal patterns. 
+        Module 4 demonstrates how use recursion to create fractal trees. 
 		
 	</p>
       </section>
