@@ -1,0 +1,219 @@
+<!-- INTRODUCTION SECTION -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<html>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="https://latex.vercel.app/style.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"/><script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+
+<title>Fractal Geometry Lab Report</title>
+
+</head>
+	
+<body id="top">
+
+
+
+
+  <header>
+    <h1>Fractal Geometry Lab Report # 6 </h1>
+    <p class="author">
+      Alecia Young <br />
+      March 25, 2025
+    </p>
+  </header>
+  
+
+  <main>
+    <article class="indent-pars">
+      
+      <!-- INTRODUCTION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="introduction">
+        <h2>Introduction</h2>
+
+	Module 5 focused on Cantor set.The Cantor set is a fractal created by taking a line segment and repeatedly removing the middle third of the remaining segments. It was discovered by the mathematician Henry John Stephen Smith in 1874. <br>
+	<b><u>Steps to construct the Cantor set: </b></u><br>
+	1. Start with a line segment.<br>
+	2. Divide the segment into three equal parts and remove the middle third.<br>
+	3. Repeat this process for each of the remaining segments.<br>
+	      
+	<h2>First Code: Cantor Set </h2>
+        <p>
+  
+        The first code construct the cantor set. <br><br>
+	<u><b>Breakdown of the Code:</b></u> <br>
+	1) The code starts with setting the parameters: <br>
+	<u>Code</u><br>
+	# Set initial parameters<br>
+	x_start = 0       # Starting x-coordinate of the first bar<br>
+	x_end = 3         # Ending x-coordinate of the first bar<br>
+	y_position = 0    # Starting y-coordinate (height of the first bar)<br>
+	bar_height = 5    # Height of each bar<br>
+	spacing = 10      # Space between bars (distance downwards)<br>
+	depth = 6         # Number of levels to draw<br>
+	The variables x_starts and x_end define the range of the initial segment. The y_position determines the vertical placement of the bars, while bar_height specifies the thickness of each segment. The spacing controls the vertical distance between recursion levels. Finally, depth determines the number of recursive iterations, which indicates how many times the process is repeated.<br><br>
+
+	2)The cantor_set function was then created to calculate the segments of the Cantor set.<br> 
+	<u>Code</u><br>
+	# Define a function to create the Cantor Set pattern<br>
+	def cantor_set(x_start, x_end, y_position, depth):<br>
+   	    if depth == 0:<br>
+        	return []<br>
+   	 # Left and right segments for the current bar<br>
+ 	left_segment = [[x_start, x_start + (x_end - x_start) / 3, y_position]]<br>
+ 	right_segment = [[x_end - (x_end - x_start) / 3, x_end, y_position]]<br>
+
+    	# Recursively generate segments for the next levels<br>
+ 	left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 3, y_position - spacing, depth - 1)<br>
+ 	right_recursive = cantor_set(x_end - (x_end - x_start) / 3, x_end, y_position - spacing, depth - 1)<br>
+
+    	# Combine the current segments with the results from recursive calls<br>
+   	 return left_segment + right_segment + left_recursive + right_recursive<br>
+
+	3) After the recursive function generates the segment data, the program converts it into an array for plotting. <br> 
+	<u>Code</u><br>
+	# Generate Cantor Set segments data <br>
+	segments = np.array(cantor_set(x_start, x_end, y_position, depth)) # Convert to an array for easy plotting <br> 
+
+	# Plot the Cantor Set <br>
+	plt.figure(figsize=(25, 25))  <br>
+
+	# Draw each segment as a black bar  <br>
+	for x_start, x_end, y in segments:  <br>
+   	    plt.fill_between([x_start, x_end], [y] * 2, [y - bar_height] * 2, color="black")  <br>
+
+	# Hide the axes for a clean look  <br>
+	plt.axis('off')  <br>
+	plt.show()  <br>
+	</p>
+      </section>
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+		
+# Import libraries for math and plotting
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Set initial parameters
+x_start = 0       # Starting x-coordinate of the first bar
+x_end = 3         # Ending x-coordinate of the first bar
+y_position = 0    # Starting y-coordinate (height of the first bar)
+bar_height = 5    # Height of each bar
+spacing = 10      # Space between bars (distance downwards)
+depth = 6         # Number of levels to draw
+
+# Define a function to create the Cantor Set pattern
+def cantor_set(x_start, x_end, y_position, depth):
+    if depth == 0:
+        return []
+
+    # Left and right segments for the current bar
+    left_segment = [[x_start, x_start + (x_end - x_start) / 3, y_position]]
+    right_segment = [[x_end - (x_end - x_start) / 3, x_end, y_position]]
+
+    # Recursively generate segments for the next levels
+    left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 3, y_position - spacing, depth - 1)
+    right_recursive = cantor_set(x_end - (x_end - x_start) / 3, x_end, y_position - spacing, depth - 1)
+
+    # Combine the current segments with the results from recursive calls
+    return left_segment + right_segment + left_recursive + right_recursive
+
+# Generate Cantor Set segments data
+segments = np.array(cantor_set(x_start, x_end, y_position, depth))  # Convert to an array for easy plotting
+
+# Plot the Cantor Set
+plt.figure(figsize=(25, 25))
+
+# Draw each segment as a black bar
+for x_start, x_end, y in segments:
+    plt.fill_between([x_start, x_end], [y] * 2, [y - bar_height] * 2, color="black")
+
+# Hide the axes for a clean look
+plt.axis('off')
+plt.show()
+	</code></pre>
+
+
+	 </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+          The diagram below shows the code for the Fractal Tree above. 
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Cantor%20Set.png?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 1:</strong> Cantor Set.
+          </figcaption>
+        </figure>
+
+
+      </section>
+
+      </section>
+
+
+
+      <!-- CONCLUSION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------- ----------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>
+        Module 4 illustrates how to generate the Cantor set using Python.
+		
+	</p>
+      </section>
+
+	 <!-- REFERENCE SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------- ----------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+	    
+	<section id="References">
+        <h2>Reference</h2>
+        <p> 
+	[1] https://en.wikipedia.org/wiki/Cantor_set <br><br>
+	
+	
+	</p>
+	
+      </section>
+     
+     
+   
+     
+     
+     
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
