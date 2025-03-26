@@ -35,13 +35,9 @@
       <section id="introduction">
         <h2>Introduction</h2>
 
-	Module 5 focused on Cantor set.The Cantor set is a fractal created by taking a line segment and repeatedly removing the middle third of the remaining segments. It was discovered by the mathematician Henry John Stephen Smith in 1874. <br>
-	<b><u>Steps to construct the Cantor set: </b></u><br>
-	1. Start with a line segment.<br>
-	2. Divide the segment into three equal parts and remove the middle third.<br>
-	3. Repeat this process for each of the remaining segments.<br>
+	Module 6 focused on creating the Julia set fractal. This code is divided into two sections. The first section demonstrates how to create a uniform 2D grid using NumPy and visualize it with Matplotlib. This generates a 2 by 2 grid to generate the Julia set. The second part builds upon this foundation by applying an iterative transformation to the grid, treating each point as a complex number. By using a simple quadratic function of the form \( z \rightarrow z^2 - 0.5 \), the code demonstrates how iterative dynamics can distort the grid. This distortion results in patterns that resemble fractals, particularly those found in Julia sets.<br>
 	      
-	<h2>First Code: Cantor Set </h2>
+	<h2>First Code: Constructing the Matrix </h2>
         <p>
   
         The first code construct the cantor set. <br><br>
@@ -98,48 +94,31 @@
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<section id="code">
 	<pre><code class="language-python">
-		
-# Import libraries for math and plotting
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Set initial parameters
-x_start = 0       # Starting x-coordinate of the first bar
-x_end = 3         # Ending x-coordinate of the first bar
-y_position = 0    # Starting y-coordinate (height of the first bar)
-bar_height = 5    # Height of each bar
-spacing = 10      # Space between bars (distance downwards)
-depth = 6         # Number of levels to draw
+# Create a simple 2D grid of points using NumPy
+def generate_grid(size):
+    x = np.linspace(-1, 1, size)  # Generate 'size' number of points between -1 and 1
+    y = np.linspace(-1, 1, size)
+    grid = np.meshgrid(x, y)  # Create a 2D grid of points
+    return grid
 
-# Define a function to create the Cantor Set pattern
-def cantor_set(x_start, x_end, y_position, depth):
-    if depth == 0:
-        return []
+# Visualize the grid of points
+def plot_grid(grid):
+    x_grid, y_grid = grid
+    plt.figure(figsize=(10, 10))
+    plt.scatter(x_grid, y_grid, s=1, color='blue')  # Plot the grid points
+    plt.title(f'2D Grid of {len(x_grid)}x{len(y_grid)} points')
+    plt.show()
 
-    # Left and right segments for the current bar
-    left_segment = [[x_start, x_start + (x_end - x_start) / 3, y_position]]
-    right_segment = [[x_end - (x_end - x_start) / 3, x_end, y_position]]
+# Set the size of the grid
+size = 50  # You can adjust this to make the grid denser or sparser
 
-    # Recursively generate segments for the next levels
-    left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 3, y_position - spacing, depth - 1)
-    right_recursive = cantor_set(x_end - (x_end - x_start) / 3, x_end, y_position - spacing, depth - 1)
-
-    # Combine the current segments with the results from recursive calls
-    return left_segment + right_segment + left_recursive + right_recursive
-
-# Generate Cantor Set segments data
-segments = np.array(cantor_set(x_start, x_end, y_position, depth))  # Convert to an array for easy plotting
-
-# Plot the Cantor Set
-plt.figure(figsize=(25, 25))
-
-# Draw each segment as a black bar
-for x_start, x_end, y in segments:
-    plt.fill_between([x_start, x_end], [y] * 2, [y - bar_height] * 2, color="black")
-
-# Hide the axes for a clean look
-plt.axis('off')
-plt.show()
+# Generate and plot the grid
+grid = generate_grid(size)
+plot_grid(grid)
+		
 	</code></pre>
 
 
