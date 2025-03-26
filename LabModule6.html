@@ -40,51 +40,9 @@
 	<h2>First Code: Constructing the Matrix </h2>
         <p>
   
-        The first code construct the cantor set. <br><br>
+        The first code construct the 2 by 2 matrix. <br><br>
 	<u><b>Breakdown of the Code:</b></u> <br>
-	1) The code starts with setting the parameters: <br>
-	<u>Code</u><br>
-	# Set initial parameters<br>
-	x_start = 0       # Starting x-coordinate of the first bar<br>
-	x_end = 3         # Ending x-coordinate of the first bar<br>
-	y_position = 0    # Starting y-coordinate (height of the first bar)<br>
-	bar_height = 5    # Height of each bar<br>
-	spacing = 10      # Space between bars (distance downwards)<br>
-	depth = 6         # Number of levels to draw<br>
-	The variables x_starts and x_end define the range of the initial segment. The y_position determines the vertical placement of the bars, while bar_height specifies the thickness of each segment. The spacing controls the vertical distance between recursion levels. Finally, depth determines the number of recursive iterations, which indicates how many times the process is repeated.<br><br>
-
-	2)The cantor_set function was then created to calculate the segments of the Cantor set.<br> 
-	<u>Code</u><br>
-	# Define a function to create the Cantor Set pattern<br>
-	def cantor_set(x_start, x_end, y_position, depth):<br>
-   	    if depth == 0:<br>
-        	return []<br>
-   	 # Left and right segments for the current bar<br>
- 	left_segment = [[x_start, x_start + (x_end - x_start) / 3, y_position]]<br>
- 	right_segment = [[x_end - (x_end - x_start) / 3, x_end, y_position]]<br>
-
-    	# Recursively generate segments for the next levels<br>
- 	left_recursive = cantor_set(x_start, x_start + (x_end - x_start) / 3, y_position - spacing, depth - 1)<br>
- 	right_recursive = cantor_set(x_end - (x_end - x_start) / 3, x_end, y_position - spacing, depth - 1)<br>
-
-    	# Combine the current segments with the results from recursive calls<br>
-   	 return left_segment + right_segment + left_recursive + right_recursive<br>
-
-	3) After the recursive function generates the segment data, the program converts it into an array for plotting. <br> 
-	<u>Code</u><br>
-	# Generate Cantor Set segments data <br>
-	segments = np.array(cantor_set(x_start, x_end, y_position, depth)) # Convert to an array for easy plotting <br> 
-
-	# Plot the Cantor Set <br>
-	plt.figure(figsize=(25, 25))  <br>
-
-	# Draw each segment as a black bar  <br>
-	for x_start, x_end, y in segments:  <br>
-   	    plt.fill_between([x_start, x_end], [y] * 2, [y - bar_height] * 2, color="black")  <br>
-
-	# Hide the axes for a clean look  <br>
-	plt.axis('off')  <br>
-	plt.show()  <br>
+	
 	</p>
       </section>
      
