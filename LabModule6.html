@@ -41,7 +41,7 @@
         <p>
   
         The first code construct the 2 by 2 matrix. <br><br>
-	<u><b>Breakdown of the Code:</b></u> <br>
+	
 	
 	</p>
       </section>
@@ -111,11 +111,11 @@ plot_grid(grid)
 
       </section>
 
-<h2>Second Code: Constructing the Julia Set: Iteration 1  </h2>
+<h2>Second Code: Constructing the Julia Set (Iteration 1)  </h2>
         <p>
   
         The second code transforms the 2 by 2 grid through a series of iterations. Each point in the grid is treated as a complex number and undergoes 1 iteration of the function \( z = z^2 - 0.5 \). The number of iterations is set to one, resulting in a slightly distorted version of the original grid. The final output is a scatter plot of the transformed grid.<br>
-	<u><b>Breakdown of the Code:</b></u> <br>
+
 	
 	</p>
       </section>
@@ -176,6 +176,69 @@ plot_grid(fractal_grid)
 
       </section>
 
+<h2>Third Code: Constructing the Julia Set (Iteration 2)  </h2>
+        <p>
+  
+        The third code represents the second iteration of a 2 by 2 grid using the function \( z = z^2 - 0.5 \). With two iterations, the grid experiences a more noticeable distortion than a single iteration, revealing more intricate patterns that suggest the fractal nature of the transformation.<br>
+	
+	</p>
+      </section>
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+
+def iterative_transform(grid, iterations):
+    x_grid, y_grid = grid
+    z = x_grid + 1j * y_grid  # Create a complex plane
+    for i in range(iterations):
+        z = z ** 2 - 0.5  # Iteratively apply the transformation
+    return np.real(z), np.imag(z)
+
+# Set the number of iterations
+iterations = 1
+
+# Apply the iterative transformation
+fractal_grid = iterative_transform(grid, iterations)
+
+# Plot the fractal grid
+plot_grid(fractal_grid)
+	</code></pre>
+
+
+	 </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+          The diagram below shows the code for Iteration 1 above. 
+        </p>
+
+        <figure>
+          <img
+            src="link goes here"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 3:</strong> The 2D grid after two iteration of the transformation \( z \mapsto z^2 - 0.5 \).
+          </figcaption>
+        </figure>
+
+
+      </section>
 
 	    
       </section>
