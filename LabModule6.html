@@ -190,16 +190,8 @@ plot_grid(fractal_grid)
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<section id="code">
 	<pre><code class="language-python">
-
-def iterative_transform(grid, iterations):
-    x_grid, y_grid = grid
-    z = x_grid + 1j * y_grid  # Create a complex plane
-    for i in range(iterations):
-        z = z ** 2 - 0.5  # Iteratively apply the transformation
-    return np.real(z), np.imag(z)
-
 # Set the number of iterations
-iterations = 1
+iterations = 2
 
 # Apply the iterative transformation
 fractal_grid = iterative_transform(grid, iterations)
@@ -221,7 +213,7 @@ plot_grid(fractal_grid)
       
         <h2>Results &amp; Analysis</h2>
         <p>
-          The diagram below shows the code for Iteration 1 above. 
+          The diagram below shows the code for Iteration 2 above. 
         </p>
 
         <figure>
