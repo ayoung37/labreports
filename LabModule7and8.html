@@ -1,0 +1,333 @@
+<!-- INTRODUCTION SECTION -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------------- -->
+<html>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="stylesheet" href="https://latex.vercel.app/style.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css"/><script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+
+<title>Fractal Geometry Lab Report</title>
+
+</head>
+	
+<body id="top">
+
+
+
+
+  <header>
+    <h1>Fractal Geometry Lab Report # 7 & 8 </h1>
+    <p class="author">
+      Alecia Young <br />
+      March 25, 2025
+    </p>
+  </header>
+  
+
+  <main>
+    <article class="indent-pars">
+      
+      <!-- INTRODUCTION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="introduction">
+        <h2>Introduction</h2>
+
+	Module 6 focused on creating the Julia set fractal. This code is divided into two sections. The first section demonstrates how to create a uniform 2D grid using NumPy and visualize it with Matplotlib. The second section builds upon this foundation by applying an iterative transformation to the grid, treating each point as a complex number. The code wraps the graph using the quadratic function in the form \( z \rightarrow z^2 - 0.5 \), creating the Julia set fractal.<br>
+	      
+	<h2>First Code: Constructing the Matrix </h2>
+        <p>
+  
+        The first code construct the 2 by 2 matrix. <br><br>
+	
+	
+	</p>
+      </section>
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create a simple 2D grid of points using NumPy
+def generate_grid(size):
+    x = np.linspace(-1, 1, size)  # Generate 'size' number of points between -1 and 1
+    y = np.linspace(-1, 1, size)
+    grid = np.meshgrid(x, y)  # Create a 2D grid of points
+    return grid
+
+# Visualize the grid of points
+def plot_grid(grid):
+    x_grid, y_grid = grid
+    plt.figure(figsize=(10, 10))
+    plt.scatter(x_grid, y_grid, s=1, color='blue')  # Plot the grid points
+    plt.title(f'2D Grid of {len(x_grid)}x{len(y_grid)} points')
+    plt.show()
+
+# Set the size of the grid
+size = 50  # You can adjust this to make the grid denser or sparser
+
+# Generate and plot the grid
+grid = generate_grid(size)
+plot_grid(grid)
+		
+	</code></pre>
+
+
+	 </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+          The diagram below shows the code for the 2 by 2 grid above. 
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/2%20by%202%20Matrix.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 1:</strong> 2 by 2 Grid.
+          </figcaption>
+        </figure>
+
+
+      </section>
+
+<h2>Second Code: Constructing the Julia Set (Iteration 1)  </h2>
+        <p>
+  
+        The second code transforms the 2 by 2 grid through a series of iterations. Each point in the grid is treated as a complex number and undergoes 1 iteration of the function \( z = z^2 - 0.5 \). The number of iterations is set to one, resulting in a slightly distorted version of the original grid. The final output is a scatter plot of the transformed grid.<br>
+
+	
+	</p>
+      </section>
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+
+def iterative_transform(grid, iterations):
+    x_grid, y_grid = grid
+    z = x_grid + 1j * y_grid  # Create a complex plane
+    for i in range(iterations):
+        z = z ** 2 - 0.5  # Iteratively apply the transformation
+    return np.real(z), np.imag(z)
+
+# Set the number of iterations
+iterations = 1
+
+# Apply the iterative transformation
+fractal_grid = iterative_transform(grid, iterations)
+
+# Plot the fractal grid
+plot_grid(fractal_grid)
+	</code></pre>
+
+
+	 </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+          The diagram below shows the code for Iteration 1 above. 
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/2D%20Grid_First%20Iteration.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 2:</strong> The 2D grid after one iteration of the transformation \( z \mapsto z^2 - 0.5 \).
+          </figcaption>
+        </figure>
+
+
+      </section>
+
+<h2>Third Code: Constructing the Julia Set (Iteration 2)  </h2>
+        <p>
+  
+        The third code represents the second iteration of a 2 by 2 grid using the function \( z = z^2 - 0.5 \). With two iterations, the grid experiences a more noticeable distortion than a single iteration, revealing more intricate patterns that suggest the fractal nature of the transformation.<br>
+	
+	</p>
+      </section>
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+# Set the number of iterations
+iterations = 2
+
+# Apply the iterative transformation
+fractal_grid = iterative_transform(grid, iterations)
+
+# Plot the fractal grid
+plot_grid(fractal_grid)
+	</code></pre>
+
+
+	 </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+          The diagram below shows the code for Iteration 2 above. 
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/2D%20Grid_Second%20Iteration.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 3:</strong> The 2D grid after two iteration of the transformation \( z \mapsto z^2 - 0.5 \).
+          </figcaption>
+        </figure>
+
+
+      </section>
+
+<h2>Third Code: Constructing the Julia Set (Iteration 3)  </h2>
+        <p>
+  
+        The fourth code represents the third iteration of a 2 by 2 grid. Each point in the grid undergoes three iterations of the transformation \( z = z^2 - 0.5 \). This process begins to reveal the intricate structure of the Julia set associated with the function. As the number of iterations increases, the visualization more accurately approximates the Julia set, showcasing its characteristic fractal nature.<br>
+	</p>
+      </section>
+     
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<!-- -------------------------------------------------------------------------------------------- -->
+	<section id="code">
+	<pre><code class="language-python">
+# Set the number of iterations
+iterations = 3
+
+# Apply the iterative transformation
+fractal_grid = iterative_transform(grid, iterations)
+
+# Plot the fractal grid
+plot_grid(fractal_grid)
+	</code></pre>
+
+
+	 </section>
+
+      <!-- RESULTS & ANALYSIS SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="results">
+      
+      
+        <h2>Results &amp; Analysis</h2>
+        <p>
+          The diagram below shows the code for Iteration 3 above. 
+        </p>
+
+        <figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/2D%20Grid_Third%20Iteration.PNG?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 4:</strong> The 2D grid after third iteration of the transformation \( z \mapsto z^2 - 0.5 \).
+          </figcaption>
+        </figure>
+
+
+      </section>
+
+	    
+      </section>
+
+
+
+      <!-- CONCLUSION SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------- ----------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>
+        Module 6 illustrates how to generate the Julia Set Fractals using Python.
+		
+	</p>
+      </section>
+
+	 <!-- REFERENCE SECTION -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+      <!-- --------------------------------------------------------------- ----------------------------- -->
+      <!-- -------------------------------------------------------------------------------------------- -->
+	    
+	<section id="References">
+        <h2>Reference</h2>
+        <p> 
+	
+	
+	
+	</p>
+	
+      </section>
+     
+     
+   
+     
+     
+     
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
