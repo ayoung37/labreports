@@ -180,7 +180,7 @@ plt.show()
       
         <h2>Results &amp; Analysis</h2>
         <p>
-          The diagram below shows the code for Iteration 1 above. 
+          The diagram below shows the code for the Mandelbrot Set. 
         </p>
 
         <figure>
@@ -192,14 +192,14 @@ plt.show()
             loading="lazy"
           />
           <figcaption>
-            <strong><br>Figure 2:</strong> The 2D grid after one iteration of the transformation \( z \mapsto z^2 - 0.5 \).
+            <strong><br>Figure 2:</strong> The Mandelbrot Set \( z \mapsto z^2 - 0.5 \).
           </figcaption>
         </figure>
 
 
       </section>
 
-<h2>Third Code: Constructing the Julia Set (Iteration 2)  </h2>
+<h2>Third Code: The Julia Set  </h2>
         <p>
   
         The third code represents the second iteration of a 2 by 2 grid using the function \( z = z^2 - 0.5 \). With two iterations, the grid experiences a more noticeable distortion than a single iteration, revealing more intricate patterns that suggest the fractal nature of the transformation.<br>
@@ -213,14 +213,46 @@ plt.show()
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<section id="code">
 	<pre><code class="language-python">
-# Set the number of iterations
-iterations = 2
+import numpy as np
+import matplotlib.pyplot as plt
+from numba import jit
 
-# Apply the iterative transformation
-fractal_grid = iterative_transform(grid, iterations)
+# JIT-optimized function to generate the Julia Set
+@jit(nopython=True)
+def julia_set(c, xmin, xmax, ymin, ymax, width, height, max_iter):
+    r1 = np.linspace(xmin, xmax, width)
+    r2 = np.linspace(ymin, ymax, height)
+    n3 = np.empty((width, height))
 
-# Plot the fractal grid
-plot_grid(fractal_grid)
+    for i in range(width):
+        for j in range(height):
+            z = r1[i] + 1j * r2[j]
+            n = 0
+            while abs(z) <= 2 and n < max_iter:
+                z = z*z + c
+                n += 1
+            n3[i, j] = n
+
+    return n3
+
+# Parameters for the plot
+xmin, xmax, ymin, ymax = -1.5, 1.5, -1.5, 1.5
+width, height = 800, 800  # Image resolution
+max_iter = 256  # Number of iterations for accuracy
+
+# Choose a value for the complex constant c
+c = complex(-0.8, 0.156)
+
+# Generate the Julia Set
+n3 = julia_set(c, xmin, xmax, ymin, ymax, width, height, max_iter)
+
+# Plotting the Julia Set
+plt.figure(figsize=(10, 10))
+plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='hot', interpolation='bilinear')
+plt.colorbar()
+plt.title(f"Julia Set for c = {c}")
+plt.show()
+		    
 	</code></pre>
 
 
@@ -236,19 +268,19 @@ plot_grid(fractal_grid)
       
         <h2>Results &amp; Analysis</h2>
         <p>
-          The diagram below shows the code for Iteration 2 above. 
+          The diagram below shows the code for the Julia Set. 
         </p>
 
         <figure>
           <img
-            src="https://github.com/ayoung37/labreports/blob/main/2D%20Grid_Second%20Iteration.PNG?raw=true"
+            src="https://github.com/ayoung37/labreports/blob/main/Julia%20Set.PNG?raw=true"
             alt="Turtle Graphics Broad View"
             width="500"
             height="400"
             loading="lazy"
           />
           <figcaption>
-            <strong><br>Figure 3:</strong> The 2D grid after two iteration of the transformation \( z \mapsto z^2 - 0.5 \).
+            <strong><br>Figure 3:</strong> The Julia Set \( z \mapsto z^2 - 0.5 \).
           </figcaption>
         </figure>
 
