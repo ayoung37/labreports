@@ -142,12 +142,11 @@ plt.show()
 
       </section>
 
-<h2>Second Code: Constructing the Julia Set (Iteration 1)  </h2>
+<h2>Second Code: Zoomed-In Mandelbrot Set </h2>
         <p>
   
-        The second code transforms the 2 by 2 grid through a series of iterations. Each point in the grid is treated as a complex number and undergoes 1 iteration of the function \( z = z^2 - 0.5 \). The number of iterations is set to one, resulting in a slightly distorted version of the original grid. The final output is a scatter plot of the transformed grid.<br>
+        The second code generates a zoomed-in visual of the Mandelbrot Set, performing the same function as the first code but with more concise code. <br>
 
-	
 	</p>
       </section>
      
@@ -187,7 +186,7 @@ plt.show()
       
         <h2>Results &amp; Analysis</h2>
         <p>
-          The diagram below shows the code for the Mandelbrot Set. 
+          The diagram below shows a zoomed-in portion of the Mandelbrot Set. 
         </p>
 
         <figure>
@@ -199,7 +198,7 @@ plt.show()
             loading="lazy"
           />
           <figcaption>
-            <strong><br>Figure 2:</strong> The Mandelbrot Set \( z \mapsto z^2 - 0.5 \).
+            <strong><br>Figure 2:</strong> A close-up view of the Mandelbrot Set \( z \mapsto z^2 - 0.5 \).
           </figcaption>
         </figure>
 
@@ -293,65 +292,6 @@ plt.show()
 
 
       </section>
-
-<h2>Third Code: Constructing the Julia Set (Iteration 3)  </h2>
-        <p>
-  
-        The fourth code represents the third iteration of a 2 by 2 grid. Each point in the grid undergoes three iterations of the transformation \( z = z^2 - 0.5 \). This process begins to reveal the intricate structure of the Julia set associated with the function. As the number of iterations increases, the visualization more accurately approximates the Julia set, showcasing its characteristic fractal nature.<br>
-	</p>
-      </section>
-     
-	<!-- -------------------------------------------------------------------------------------------- -->
-	<!-- -------------------------------------------------------------------------------------------- -->
-	<!-- -------------------------------------------------------------------------------------------- -->
-	<!-- -------------------------------------------------------------------------------------------- -->
-	<section id="code">
-	<pre><code class="language-python">
-# Set the number of iterations
-iterations = 3
-
-# Apply the iterative transformation
-fractal_grid = iterative_transform(grid, iterations)
-
-# Plot the fractal grid
-plot_grid(fractal_grid)
-	</code></pre>
-
-
-	 </section>
-
-      <!-- RESULTS & ANALYSIS SECTION -->
-      <!-- -------------------------------------------------------------------------------------------- -->
-      <!-- -------------------------------------------------------------------------------------------- -->
-      <!-- -------------------------------------------------------------------------------------------- -->
-      <!-- -------------------------------------------------------------------------------------------- -->
-      <section id="results">
-      
-      
-        <h2>Results &amp; Analysis</h2>
-        <p>
-          The diagram below shows the code for Iteration 3 above. 
-        </p>
-
-        <figure>
-          <img
-            src="https://github.com/ayoung37/labreports/blob/main/2D%20Grid_Third%20Iteration.PNG?raw=true"
-            alt="Turtle Graphics Broad View"
-            width="500"
-            height="400"
-            loading="lazy"
-          />
-          <figcaption>
-            <strong><br>Figure 4:</strong> The 2D grid after third iteration of the transformation \( z \mapsto z^2 - 0.5 \).
-          </figcaption>
-        </figure>
-
-
-      </section>
-
-	    
-      </section>
-
 
 
       <!-- CONCLUSION SECTION -->
