@@ -208,7 +208,13 @@ plt.show()
 <h2>Third Code: The Julia Set  </h2>
         <p>
   
-        The third code represents the second iteration of a 2 by 2 grid using the function \( z = z^2 - 0.5 \). With two iterations, the grid experiences a more noticeable distortion than a single iteration, revealing more intricate patterns that suggest the fractal nature of the transformation.<br>
+	The third code focus on the Julia Set. The Julia Set.<br>
+
+	The code begins by importing the following functions: <br>
+	<b>import numpy as np</b> <br>
+	<b>import matplotlib.pyplot as plt</b> <br>
+	<b>from numba import jit</b> <br>
+	The function <b>julia_set(c, xmin, xmax, ymin, ymax, width, height, max_iter)</b> computes the Julia set for a specific complex number c. It iteratively calculates z = z*z + c for every point z in the complex plane. 
 	
 	</p>
       </section>
@@ -286,7 +292,7 @@ plt.show()
             loading="lazy"
           />
           <figcaption>
-            <strong><br>Figure 3:</strong> The Julia Set \( z \mapsto z^2 - 0.5 \).
+            <strong><br>Figure 3:</strong> The Julia Set
           </figcaption>
         </figure>
 
@@ -302,7 +308,7 @@ plt.show()
       <section id="conclusion">
         <h2>Conclusion</h2>
         <p>
-        Module 6 illustrates how to generate the Julia Set Fractals using Python.
+        Module 7 and 8 illustrates how to generate the Mandelbrot Set and Julia Set Fractals using Python.
 		
 	</p>
       </section>
@@ -316,6 +322,8 @@ plt.show()
 	<section id="References">
         <h2>Reference</h2>
         <p> 
+	[1] https://en.wikipedia.org/wiki/Mandelbrot_set
+	[2] https://fractal.org/Unveiling-Mandelbrot-set.pdf
 	
 	
 	
