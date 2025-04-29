@@ -43,8 +43,8 @@
 	      
 	<h2>Part 1: Chaos Games </h2>
         <p>
+	A chaos game is a method for generating iterative fractals using polygons and an initial point selected randomly within it. It uses specific starting conditions that unfold deterministically based on a defined set of rules [1].<br><br>
   
-        The first code calculates a portion of the Mandelbrot set using the Numba function.  It zooms into a detailed area of the fractal and visualizes it with a color map that shows how quickly each point escapes. <br><br>
 	
 	The code begins by importing the following functions: <br>
 	<b>import numpy as np,<br>
@@ -63,55 +63,31 @@
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<section id="code">
 	<pre><code class="language-python">
-import numpy as np
+
 import matplotlib.pyplot as plt
-from numba import jit
+from random import random, randint
+import numpy as np
 
-# JIT-optimized mandelbrot function
-@jit(nopython=True)
-def mandelbrot(c, max_iter):
-    z = 0
-    n = 0
-    while abs(z) <= 2 and n < max_iter:
-        z = z*z + c
-        n += 1
-    return n
+def midpoint(P, Q):
+    return (0.5*(P[0] + Q[0]), 0.5*(P[1] + Q[1]))
 
-# JIT-optimized mandelbrot set generator
-@jit(nopython=True)
-def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
-    r1 = np.linspace(xmin, xmax, width)
-    r2 = np.linspace(ymin, ymax, height)
-    n3 = np.empty((width, height))
+vertices = [(0, 0), (2, 2*np.sqrt(3)), (4, 0)]
+iterates = 50000
+x, y = [0]*iterates, [0]*iterates
+x[0], y[0] = random(), random()
 
-    for i in range(width):
-        for j in range(height):
-            n3[i, j] = mandelbrot(r1[i] + 1j * r2[j], max_iter)
+for i in range(1, iterates):
 
-    return n3
+    k = randint(0, 2)
 
-# Parameters for the plot
-xmin, xmax, ymin, ymax = -2.0, 1.0, -1.5, 1.5
-width, height = 800, 800
-max_iter = 100
+    x[i], y[i] = midpoint( vertices[k], (x[i-1], y[i-1]) )
 
-# Generate the Mandelbrot Set
-n3 = mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter)
-# Parameters for the initial zoom level
-xmin, xmax, ymin, ymax = -0.75, -0.74, 0.1, 0.11  # Zoom into this specific area
-width, height = 800, 800  # Resolution of the image
-max_iter = 1000  # Number of iterations
-
-# Generate the Mandelbrot Set with zoom
-n3 = mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter)
-
-# Plotting the zoomed Mandelbrot Set
-plt.figure(figsize=(10, 10))
-plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='hot')
-plt.colorbar()
-plt.title("Mandelbrot Set - Zoomed In")
+plt.figure(figsize=(8, 8))
+plt.scatter(x, y, color = 'r', s=0.1)
+plt.title('Sierpinski Triangle Generated Using the Chaos Game')
+plt.axis('equal')  # Ensure aspect ratio is equal for an equilateral triangle
 plt.show()
-		
+
 	</code></pre>
 
 
@@ -326,7 +302,7 @@ plt.show()
 	<section id="References">
         <h2>Reference</h2>
         <p> 
-	[1] https://en.wikipedia.org/wiki/Mandelbrot_set <br>
+	[1] https://en.wikipedia.org/wiki/Chaos_game <br>
 	[2] https://fractal.org/Unveiling-Mandelbrot-set.pdf<br>
 	
 	
