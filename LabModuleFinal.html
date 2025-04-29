@@ -142,7 +142,7 @@ plt.show()
 	<u><b>The Barnsley Fern </b></u><br>
 	Barnsley's Fern is an example of a random point iteration that generates a fractal pattern. The transformation rules take any point (x, y) and return new values for x and y. The transformation functions are defined as follows: <br>
 
-```def f1(x, y): <br>
+def f1(x, y): <br>
     x = 0 <br>
     y = 0.16 * y <br>
     return x, y<br> 
@@ -161,9 +161,10 @@ def f4(x, y): <br>
     x_new = -0.15 * x + 0.28 * y <br>
     y_new = 0.26 * x + 0.24 * y + 0.44 <br>
     return x_new, y_new <br>
-```<br>
-These functions provide the necessary transformations to create the intricate fractal shape characteristic of Barnsley's Fern.
+	    
+These functions provide the necessary transformations to create the intricate fractal shape characteristic of Barnsley's Fern. <br> 
 
+The first function, `f1`, represents the fern stem. The second function, `f2`, creates the largest portion of the Fern, which is the leafy part. The third function, `f3`, draws a smaller left leaflet, while the fourth function, `f4`, draws the smaller right leaflet.<br>
 
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<!-- -------------------------------------------------------------------------------------------- -->
