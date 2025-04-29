@@ -53,8 +53,23 @@
 	from random import random, randint <br>
 	import numpy as np</b><br>
 
+	The function <b>'def midpoint(P, Q):'</b> calculates the midpoint between two points, P and Q.  <br>
 
+	The variable <b>'vertices = [(0, 0), (2, 2*np.sqrt(3)), (4, 0)]'</b> defines the three vertices of the equilateral triangle. <br>
+
+	The variable <b>'iterates = 50000'</b> is the number of points that will be plotted. <br>
+
+	The array <b>'x, y = [0]*iterates, [0]*iterates'</b> initialized to store all the points. <br>
+
+	The loop <b>'for i in range(1, iterates):'</b> randomly selects one of the three vertices. Move halfway from the current point to the chosen vertex and store the new point. <br>
+
+	<b>plt.figure(figsize=(8, 8)) <br>
+	plt.scatter(x, y, color = 'r', s=0.1) <br>
+	plt.title('Sierpinski Triangle Generated Using the Chaos Game')<br>
+	plt.axis('equal')  # Ensure aspect ratio is equal for an equilateral triangle <br>
+	plt.show()</b><br>
 	
+	This section of the code is responsible for visualizing the Sierpinski Triangle. 
 	</p>
       </section>
      
