@@ -277,20 +277,62 @@ plt.show()
 	<section id="code">
 	<pre><code class="language-python">
 
-# Parameters for the initial zoom level
-xmin, xmax, ymin, ymax = -0.75, -0.74, 0.1, 0.11  # Zoom into this specific area
-width, height = 800, 800  # Resolution of the image
-max_iter = 1000  # Number of iterations
+# Initialize the turtle
+initializeTurtle()
+showturtle()
 
-# Generate the Mandelbrot Set with zoom
-n3 = mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter)
+# Function to apply L-system rules
+def apply_rule(char, rules):
+    return rules.get(char, char)
 
-# Plotting the zoomed Mandelbrot Set
-plt.figure(figsize=(10, 10))
-plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='hot')
-plt.colorbar()
-plt.title("Mandelbrot Set - Zoomed In")
-plt.show()
+# Function to generate L-system string
+def generate_lsystem(axiom, rules, iterations):
+    current_string = axiom
+    for _ in range(iterations):
+        current_string = ''.join([apply_rule(char, rules) for char in current_string])
+    return current_string
+
+# Function to draw the L-system with turtle
+def draw_lsystem(turtle_string, length, angle):
+    stack = []
+    for command in turtle_string:
+        if command == 'F':
+            forward(length)
+        elif command == '+':
+            left(angle)
+        elif command == '-':
+            right(angle)
+        elif command == '[':
+            position = (getx(), gety())
+            heading_angle = heading()
+            stack.append((position, heading_angle))
+        elif command == ']':
+            position, heading_angle = stack.pop()
+            jump(position[0], position[1])
+            face(heading_angle)
+
+# Define the L-system rules
+rules = {'F': 'FF+[+F-F-F]-[-F+F+F]'}
+
+axiom = 'F'
+iterations = 4
+
+# Generate the L-system string
+turtle_string = generate_lsystem(axiom, rules, iterations)
+
+# Set up the turtle
+jump(400, 500)
+face(0)
+color('green')
+
+# Draw the L-system fractal tree
+length = 8
+angle = 25
+draw_lsystem(turtle_string, length, angle)
+
+# Display the drawing
+show()
+
 	</code></pre>
 
 
@@ -306,7 +348,7 @@ plt.show()
       
         <h2>Results &amp; Analysis</h2>
         <p>
-          The diagram below shows a zoomed-in portion of the Mandelbrot Set. 
+          The diagram below shows the L-System Fractal Tree. 
         </p>
 
         <figure>
@@ -318,7 +360,7 @@ plt.show()
             loading="lazy"
           />
           <figcaption>
-            <strong><br>Figure 2:</strong> Close-up view of the Mandelbrot Set, using the same parameters as the first code.
+            <strong><br>Figure 3:</strong> L-System Fractal Tree.
           </figcaption>
         </figure>
 
