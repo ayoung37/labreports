@@ -140,6 +140,28 @@ plt.show()
 
 
 	<u><b>The Barnsley Fern </b></u><br>
+	Barnsley's Fern is another example of a random point iteration that produces a fractal pattern. The rules take any point (x, y) and return a mew x and y according to: 
+	# Define the transformation functions
+def f1(x, y): <br>
+    x = 0 <br>
+    y = 0.16 * y <br>
+    return x, y <br>
+
+def f2(x, y): <br>
+    x_new = 0.85 * x + 0.04 * y <br>
+    y_new = -0.04 * x + 0.85 * y + 1.6 <br>
+    return x_new, y_new <br>
+
+def f3(x, y):  <br>
+    x_new = 0.2 * x - 0.26 * y <br>
+    y_new = 0.23 * x + 0.22 * y + 1.6 <br>
+    return x_new, y_new <br>
+
+def f4(x, y): <br>
+    x_new = -0.15 * x + 0.28 * y <br>
+    y_new = 0.26 * x + 0.24 * y + 0.44 <br>
+    return x_new, y_new <br>
+
 
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<!-- -------------------------------------------------------------------------------------------- -->
