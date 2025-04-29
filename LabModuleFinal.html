@@ -46,19 +46,15 @@
 	A chaos game is a method for generating iterative fractals using polygons and a randomly selected initial point within them[1]. It applies specific starting conditions that unfold deterministically based on a defined set of rules, incorporating randomly generated points to create the fractals[2].<br><br>
 
 	<u><b>The Sierpinski Triangle </b></u><br>
-	The program begins with three coordinates that represent the corners of an equilateral triangle. From these corners, one is randomly selected, and a dot is drawn at the midpoint between that corner and an initial random point. In each subsequent step of the process, a new dot is drawn at the midpoint between the previous dot and another randomly selected corner of the triangle. This procedure is repeated, and over time, a Sierpinski triangle begins to form. <br>
-	
-	
-	
+	The program begins with three coordinates that represent the corners of an equilateral triangle. From these corners, one is randomly selected, and a dot is drawn at the midpoint between that corner and an initial random point. In each subsequent step of the process, a new dot is drawn at the midpoint between the previous dot and another randomly selected corner of the triangle. This procedure is repeated, and over time, a Sierpinski triangle begins to form.<br><br>
 	
 	The code begins by importing the following functions: <br>
-	<b>import numpy as np,<br>
-	import matplotlib.pyplot as plt,<br>
-	and from numba import jit.</b><br>
+	<b>import matplotlib.pyplot as plt <br><br>
+	from random import random, randint <br><br>
+	import numpy as np</b><br><br>
 
-	The function <b>'mandelbrot(c, max_iter)'</b> calculates the number of iterations required for a complex number \( c \) to escape the boundary of the Mandelbrot set.<br>
-	The function <b>'mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter)'</b> generates a 2D array that represents the Mandelbrot set over a specified region of the complex plane.<br>
-	The parameters <b>'xmin, xmax, ymin, ymax = -0.75, -0.74, 0.1, 0.1'</b> define the zoomed-in area of the Mandelbrot set, while the code <b>'plt.imshow(n3.T, extent=[xmin, xmax, ymin, ymax], cmap='hot')'</b> is used to plot the fractals. <br>
+
+	
 	</p>
       </section>
      
