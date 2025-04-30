@@ -440,13 +440,21 @@ show()
 <h2>Part 3: Hilbert Curves  </h2>
         <p>
   
-	The fourth code focus on the Hilbert Curves. <br>
+	The fourth code focuses on Hilbert Curves. It is similar to the previous example in that it uses L-Systems and turtle graphics to create the Hilbert Curve. Below is a breakdown of the main components of the code.<br>
 
-	The code begins by importing the following functions: <br>
-	<b>import numpy as np</b> <br>
-	<b>import matplotlib.pyplot as plt</b> <br>
-	<b>from numba import jit</b> <br>
-	The function <b>julia_set(c, xmin, xmax, ymin, ymax, width, height, max_iter)</b> computes the Julia set for a specific complex number c. It iteratively calculates z = z*z + c for every point z in the complex plane. 
+The function <b>draw_lsystem(turtle_string, length, angle)</b> is responsible for drawing the L-System using turtle graphics. The following commands are utilized: <br>  
+- <b>'F'</b>: Move forward by the specified length, drawing a line. <br>    
+- <b>'+'</b>: Turn left by the given angle. <br>  
+- <b>`'-'</b>: Turn right by the specified angle. <br>  
+
+The axiom serves as the starting point for the L-System, and the rules define how characters are replaced in each iteration to construct the fractal pattern. The axiom is defined as: <br>
+<b>axiom = 'L'  <br>
+rules = {  <br>
+    'L': '-RF+LFL+FR-',  <br>
+    'R': '+LF-RFR-FL+' <br> 
+}  </b><br>
+
+The formula <b>n = 2 ** iterations - 1</b> calculates the number of line segments, while <b>length = size / n</b> determines the length of each line segment to ensure the curve fits within the specified canvas size. 
 	
 	</p>
       </section>
