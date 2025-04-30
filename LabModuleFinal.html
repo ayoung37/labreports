@@ -440,7 +440,7 @@ show()
 <h2>Part 3: Hilbert Curves  </h2>
         <p>
   
-	The third code focus on the Julia Set. The Julia Set.<br>
+	The fourth code focus on the Hilbert Curves. <br>
 
 	The code begins by importing the following functions: <br>
 	<b>import numpy as np</b> <br>
@@ -457,9 +457,6 @@ show()
 	<!-- -------------------------------------------------------------------------------------------- -->
 	<section id="code">
 	<pre><code class="language-python">
-# Import necessary modules
-import math
-
 # Initialize the turtle
 initializeTurtle()
 showturtle()
@@ -495,19 +492,19 @@ rules = {
     'L': '-RF+LFL+FR-',
     'R': '+LF-RFR-FL+'
 }
-iterations = 5  # Adjust the iterations to change the order (e.g., 1 to 5)
+iterations = 1  # Adjust the iterations to change the order (e.g., 1 to 5)
 angle = 90
 
 # Generate the L-system string for the Hilbert curve
 hilbert_string = generate_lsystem(axiom, rules, iterations)
 
 # Calculate the step size based on desired size and iterations
-size = 400  # Total size of the Hilbert curve (adjust as needed)
+size = 200  # Total size of the Hilbert curve (adjust as needed)
 n = 2 ** iterations - 1
 length = size / n
 
 # Move to starting position
-jump(400, 500)  # Adjust the starting position to fit your canvas
+jump(100, 300)  # Adjust the starting position to fit your canvas
 face(0)
 color('blue')
 
@@ -516,6 +513,80 @@ draw_lsystem(hilbert_string, length, angle)
 
 # Display the drawing
 show()
+
+
+
+iterations = 2  # Adjust the iterations to change the order (e.g., 1 to 5)
+angle = 90
+
+# Generate the L-system string for the Hilbert curve
+hilbert_string = generate_lsystem(axiom, rules, iterations)
+
+# Calculate the step size based on desired size and iterations
+size = 200  # Total size of the Hilbert curve (adjust as needed)
+n = 2 ** iterations - 1
+length = size / n
+
+# Move to starting position
+jump(400, 300)  # Adjust the starting position to fit your canvas
+face(0)
+color('blue')
+
+# Draw the Hilbert curve
+draw_lsystem(hilbert_string, length, angle)
+
+# Display the drawing
+show()
+
+
+
+iterations = 3  # Adjust the iterations to change the order (e.g., 1 to 5)
+angle = 90
+
+# Generate the L-system string for the Hilbert curve
+hilbert_string = generate_lsystem(axiom, rules, iterations)
+
+# Calculate the step size based on desired size and iterations
+size = 200  # Total size of the Hilbert curve (adjust as needed)
+n = 2 ** iterations - 1
+length = size / n
+
+# Move to starting position
+jump(700, 300)  # Adjust the starting position to fit your canvas
+face(0)
+color('blue')
+
+# Draw the Hilbert curve
+draw_lsystem(hilbert_string, length, angle)
+
+# Display the drawing
+show()
+
+
+iterations = 4  # Adjust the iterations to change the order (e.g., 1 to 5)
+angle = 90
+
+# Generate the L-system string for the Hilbert curve
+hilbert_string = generate_lsystem(axiom, rules, iterations)
+
+# Calculate the step size based on desired size and iterations
+size = 200  # Total size of the Hilbert curve (adjust as needed)
+n = 2 ** iterations - 1
+length = size / n
+
+# Move to starting position
+jump(400, 550)  # Adjust the starting position to fit your canvas
+face(0)
+color('blue')
+
+# Draw the Hilbert curve
+draw_lsystem(hilbert_string, length, angle)
+
+# Display the drawing
+show()
+
+
+
 		    
 	</code></pre>
 
@@ -535,6 +606,20 @@ show()
           The diagram below shows the Hilbert Curve. 
         </p>
 
+	<figure>
+          <img
+            src="https://github.com/ayoung37/labreports/blob/main/Helbert%20Curve%20(Iterations%201-4).png?raw=true"
+            alt="Turtle Graphics Broad View"
+            width="500"
+            height="400"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong><br>Figure 4:</strong> The Hilbert Curve (Iterations 1- 4)
+          </figcaption>
+        </figure> 
+	      
+
         <figure>
           <img
             src="https://github.com/ayoung37/labreports/blob/main/Hilbert%20Curves.png?raw=true"
@@ -544,9 +629,10 @@ show()
             loading="lazy"
           />
           <figcaption>
-            <strong><br>Figure 4:</strong> The Hilbert Curve
+            <strong><br>Figure 4:</strong> The Hilbert Curve (Iteration 5)
           </figcaption>
         </figure>
+  
 
 
       </section>
