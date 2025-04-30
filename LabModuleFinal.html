@@ -267,43 +267,26 @@ plt.show()
   An L-system, or Lindenmayer system, is a parallel rewriting system and a type of formal grammar. It consists of an alphabet of symbols used to create strings, a collection of production rules that expand each symbol into a larger string, an initial "axiom" string from which construction begins, and a mechanism for translating the generated strings into geometric structures [4]. <br>
   <u><b>Fractal Trees</b></u><br>
 The program begins by importing the turtle graphics library and displaying the turtle cursor. <br>
-<b>```python<br>
-# Initialize the turtle<br>
+<b># Initialize the turtle<br>
 initializeTurtle()<br>
-showturtle()<br>
-```</b><br>
+showturtle()<br></b><br>
 
-The function <br>
-<b>```python <br>
-def apply_rule(char, rules): <br>
-    return rules.get(char, char)<br>
-```</b><br>
-applies the L-system rule by replacing a character with its corresponding string defined in the rules. <br>
+The function <b>def apply_rule(char, rules):</b> applies the L-system rule by replacing a character with its corresponding string defined in the rules. <br>
 
-The function <br>
-<b>```python<br>
-def generate_lsystem(axiom, rules, iterations):<br>
-```<br></b>
-generates the L-System string. It starts with an initial string (the axiom) and then iteratively applies the production rules to create a complex string that represents the fractal structure. <br>
+The function <b>def generate_lsystem(axiom, rules, iterations):</b> generates the L-System string. It starts with an initial string (the axiom) and then iteratively applies the production rules to create a complex string that represents the fractal structure. <br>
 
-The function <br>
-<b>```python<br>
-def draw_lsystem(turtle_string, length, angle):<br>
-```</b><br>
-draws the L-System using turtle graphics. The commands include: <br>
-- 'F': move forward by the specified length, drawing a line.<br>
-- '+': turn left by the given angle.<br>
-- '-': turn right by the specified angle.<br>
-- '[': save the current position and heading, which is used for creating branches.<br>
-- ']': restore the last saved position and heading.<br><br>
+The function <b>def draw_lsystem(turtle_string, length, angle):</b> draws the L-System using turtle graphics. The commands include: <br>
+- <b>'F'</b>: move forward by the specified length, drawing a line.<br>
+- <b>'+'</b>: turn left by the given angle.<br>
+- <b>'-'</b>: turn right by the specified angle.<br>
+- <b>'['</b>: save the current position and heading, which is used for creating branches.<br>
+- <b>']'</b>: restore the last saved position and heading.<br>
 
-<b>```python<br>
-# Define the L-system rules<br>
+The three variables below defines the L-System rules.<br> 
+<b># Define the L-system rules<br>
 rules = {'F': 'FF-[-F+F+F]+[+F-F-F]'}<br>
 axiom = 'F'<br>
-iterations = 4<br>
-```<br></b>
-
+iterations = 4<br></b>
 The rules specify how each character is replaced during each iteration. The axiom serves as the starting point of the system, and the iterations represent the number of times the rules are applied.<br>
 
 
